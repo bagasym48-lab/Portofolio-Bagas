@@ -389,6 +389,18 @@
   .cert-item.slot .cert-thumb small{font-size:11.5px;max-width:150px;line-height:1.5;}
   .cert-item.slot:hover{box-shadow:none;transform:none;border-color:var(--accent);}
 
+  /* 3D MODELING GALLERY */
+  .model-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(300px,1fr));gap:18px;}
+  .model-item{
+    border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;
+    transition:box-shadow .25s var(--ease), transform .25s var(--ease);
+  }
+  .model-item:hover{box-shadow:0 14px 30px rgba(22,34,63,.12);transform:translateY(-3px);}
+  .model-thumb{aspect-ratio:16/9;overflow:hidden;background:var(--bg-soft);}
+  .model-thumb img{width:100%;height:100%;object-fit:cover;display:block;cursor:zoom-in;transition:transform .4s var(--ease);}
+  .model-item:hover .model-thumb img{transform:scale(1.05);}
+  .model-caption{padding:12px 14px;font-size:12.5px;color:var(--navy);font-weight:600;line-height:1.4;}
+
   .project-overlay{
     position:absolute;inset:auto 0 0 0;padding:10px 14px;
     background:rgba(0,0,0,.35);color:#fff;font-size:11px;font-weight:600;
@@ -534,6 +546,7 @@
       <li><a href="#about" data-nav data-i18n="nav.about">Tentang</a></li>
       <li><a href="#experience" data-nav data-i18n="nav.experience">Pengalaman</a></li>
       <li><a href="#projects" data-nav data-i18n="nav.projects">Proyek</a></li>
+      <li><a href="#modeling" data-nav data-i18n="nav.modeling">3D Modeling</a></li>
       <li><a href="#education" data-nav data-i18n="nav.education">Pendidikan</a></li>
       <li><a href="#training" data-nav data-i18n="nav.training">Pelatihan</a></li>
       <li><a href="#achievements" data-nav data-i18n="nav.achievements">Prestasi</a></li>
@@ -946,6 +959,64 @@
   </div>
 </section>
 
+<section id="modeling">
+  <div class="container">
+    <div class="eyebrow" data-i18n="model.eyebrow">Pemodelan 3D</div>
+    <h2 class="section-title reveal" data-i18n="model.title">3D Modeling &amp; Visualisasi</h2>
+    <p class="section-sub reveal" data-i18n="model.sub">Kumpulan pemodelan dan render 3D — dari visualisasi arsitektur, pemodelan struktur jembatan, hingga konsep infrastruktur. Sebagai bukti kemampuan modeling &amp; rendering. Klik gambar untuk memperbesar.</p>
+    <div class="model-grid">
+      <div class="model-item reveal">
+        <div class="model-thumb"><img class="zoomable" src="assets/img/3d-visualisasi-fasad-stasiun-transit.jpg" alt="Visualisasi 3D fasad stasiun transit"></div>
+        <div class="model-caption" data-i18n="model.cap1">Visualisasi arsitektur — fasad stasiun transit</div>
+      </div>
+      <div class="model-item reveal">
+        <div class="model-thumb"><img class="zoomable" src="assets/img/3d-kanopi-panel-surya-peron-stasiun.jpg" alt="Kanopi panel surya di atas peron stasiun"></div>
+        <div class="model-caption" data-i18n="model.cap2">Kanopi panel surya di atas peron stasiun</div>
+      </div>
+      <div class="model-item reveal">
+        <div class="model-thumb"><img class="zoomable" src="assets/img/3d-panorama-360-stasiun-transit.jpg" alt="Panorama 360 derajat kawasan stasiun transit"></div>
+        <div class="model-caption" data-i18n="model.cap3">Panorama 360° kawasan stasiun transit</div>
+      </div>
+      <div class="model-item reveal">
+        <div class="model-thumb"><img class="zoomable" src="assets/img/3d-bangunan-hijau-atap-panel-surya.jpg" alt="Bangunan hijau dengan atap panel surya, tampak atas"></div>
+        <div class="model-caption" data-i18n="model.cap4">Bangunan hijau beratap panel surya (tampak atas)</div>
+      </div>
+      <div class="model-item reveal">
+        <div class="model-thumb"><img class="zoomable" src="assets/img/3d-jembatan-rangka-baja-sungai.jpg" alt="Jembatan rangka baja melintang sungai"></div>
+        <div class="model-caption" data-i18n="model.cap5">Jembatan rangka baja melintang sungai</div>
+      </div>
+      <div class="model-item reveal">
+        <div class="model-thumb"><img class="zoomable" src="assets/img/3d-jembatan-rangka-baja-perspektif-dek.jpg" alt="Jembatan rangka baja, perspektif dari dek"></div>
+        <div class="model-caption" data-i18n="model.cap6">Jembatan rangka baja — perspektif dek</div>
+      </div>
+      <div class="model-item reveal">
+        <div class="model-thumb"><img class="zoomable" src="assets/img/3d-jembatan-pelengkung-baja-tied-arch.jpg" alt="Jembatan pelengkung baja tied-arch"></div>
+        <div class="model-caption" data-i18n="model.cap7">Jembatan pelengkung baja (tied-arch)</div>
+      </div>
+      <div class="model-item reveal">
+        <div class="model-thumb"><img class="zoomable" src="assets/img/3d-model-struktur-jembatan-busur-baja.jpg" alt="Model struktur jembatan busur baja bowstring"></div>
+        <div class="model-caption" data-i18n="model.cap8">Model struktur jembatan busur baja (bowstring)</div>
+      </div>
+      <div class="model-item reveal">
+        <div class="model-thumb"><img class="zoomable" src="assets/img/3d-simulasi-keselamatan-jalan-layang.jpg" alt="Simulasi skenario keselamatan jalan layang"></div>
+        <div class="model-caption" data-i18n="model.cap9">Simulasi skenario keselamatan jalan layang</div>
+      </div>
+      <div class="model-item reveal">
+        <div class="model-thumb"><img class="zoomable" src="assets/img/3d-model-peralatan-proses.jpg" alt="Model 3D peralatan proses"></div>
+        <div class="model-caption" data-i18n="model.cap10">Model 3D peralatan proses/reaktor</div>
+      </div>
+      <div class="model-item reveal">
+        <div class="model-thumb"><img class="zoomable" src="assets/img/3d-konsep-rel-layang-modul-apung.jpg" alt="Konsep rel layang dan modul apung pesisir"></div>
+        <div class="model-caption" data-i18n="model.cap11">Konsep transit rel layang &amp; modul apung pesisir</div>
+      </div>
+      <div class="model-item reveal">
+        <div class="model-thumb"><img class="zoomable" src="assets/img/3d-masterplan-kawasan-apung-pesisir.jpg" alt="Masterplan kawasan apung pesisir"></div>
+        <div class="model-caption" data-i18n="model.cap12">Masterplan kawasan apung pesisir (konsep PKM)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="education" style="background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
   <div class="container">
     <div class="eyebrow" data-i18n="edu.eyebrow">Latar Belakang Akademik</div>
@@ -1258,7 +1329,7 @@
   // ---- i18n ----
   var I18N = {
     id: {
-      "nav.about":"Tentang","nav.experience":"Pengalaman","nav.projects":"Proyek",
+      "nav.about":"Tentang","nav.experience":"Pengalaman","nav.projects":"Proyek","nav.modeling":"3D Modeling",
       "nav.education":"Pendidikan","nav.training":"Pelatihan","nav.achievements":"Prestasi",
       "nav.certificates":"Sertifikat",
       "cert.eyebrow":"Bukti &amp; Dokumen","cert.title":"Sertifikat &amp; Piagam",
@@ -1332,6 +1403,20 @@
       "card2.desc":"Detail penulangan kolom (K1 400×400 &amp; K2 450×450) untuk proyek Adhi–Wiswakharman KSO di Kawasan Peribadatan IKN, Penajam Paser Utara.",
       "card3.desc":"Pengawasan pelaksanaan konstruksi, peninjauan gambar kerja, dan koordinasi lapangan.",
       "card4.desc":"Site engineering bersama China Road and Bridge Corporation pada proyek infrastruktur pesisir.",
+      "model.eyebrow":"Pemodelan 3D","model.title":"3D Modeling &amp; Visualisasi",
+      "model.sub":"Kumpulan pemodelan dan render 3D — dari visualisasi arsitektur, pemodelan struktur jembatan, hingga konsep infrastruktur. Sebagai bukti kemampuan modeling &amp; rendering. Klik gambar untuk memperbesar.",
+      "model.cap1":"Visualisasi arsitektur — fasad stasiun transit",
+      "model.cap2":"Kanopi panel surya di atas peron stasiun",
+      "model.cap3":"Panorama 360° kawasan stasiun transit",
+      "model.cap4":"Bangunan hijau beratap panel surya (tampak atas)",
+      "model.cap5":"Jembatan rangka baja melintang sungai",
+      "model.cap6":"Jembatan rangka baja — perspektif dek",
+      "model.cap7":"Jembatan pelengkung baja (tied-arch)",
+      "model.cap8":"Model struktur jembatan busur baja (bowstring)",
+      "model.cap9":"Simulasi skenario keselamatan jalan layang",
+      "model.cap10":"Model 3D peralatan proses/reaktor",
+      "model.cap11":"Konsep transit rel layang &amp; modul apung pesisir",
+      "model.cap12":"Masterplan kawasan apung pesisir (konsep PKM)",
       "edu.eyebrow":"Latar Belakang Akademik","edu.title":"Pendidikan",
       "edu.sub":"S1 Teknik Sipil &middot; 2021 – 2025 (lulus semester 9)",
       "edu.thesis":"<b>Tugas Akhir:</b> \"Comparative Study of Concrete Performance Using Various Portland Composite Cement Products With 40% Fly Ash Substitution\"",
@@ -1358,7 +1443,7 @@
       "footer.text":"&copy; 2026 Bagas Yoga Mahendra. Dibuat dengan Claude."
     },
     en: {
-      "nav.about":"About","nav.experience":"Experience","nav.projects":"Projects",
+      "nav.about":"About","nav.experience":"Experience","nav.projects":"Projects","nav.modeling":"3D Modeling",
       "nav.education":"Education","nav.training":"Training","nav.achievements":"Achievements",
       "nav.certificates":"Certificates",
       "cert.eyebrow":"Proof &amp; Documents","cert.title":"Certificates &amp; Awards",
@@ -1432,6 +1517,20 @@
       "card2.desc":"Column reinforcement details (K1 400×400 &amp; K2 450×450) for the Adhi–Wiswakharman KSO project at the IKN Religious Complex, Penajam Paser Utara.",
       "card3.desc":"Construction implementation supervision, working drawing review, and field coordination.",
       "card4.desc":"Site engineering with China Road and Bridge Corporation on a coastal infrastructure project.",
+      "model.eyebrow":"3D Modeling","model.title":"3D Modeling &amp; Visualization",
+      "model.sub":"A collection of 3D models and renders — from architectural visualization and bridge structural modeling to infrastructure concepts. Shown as proof of modeling &amp; rendering skills. Click any image to enlarge.",
+      "model.cap1":"Architectural visualization — transit station facade",
+      "model.cap2":"Solar-panel canopy over the station platform",
+      "model.cap3":"360° panorama of the transit station area",
+      "model.cap4":"Green building with rooftop solar (aerial view)",
+      "model.cap5":"Steel truss bridge over a river",
+      "model.cap6":"Steel truss bridge — deck perspective",
+      "model.cap7":"Steel tied-arch bridge",
+      "model.cap8":"Bowstring steel arch bridge structural model",
+      "model.cap9":"Elevated road safety scenario simulation",
+      "model.cap10":"Process/reactor equipment 3D model",
+      "model.cap11":"Elevated rail transit &amp; floating coastal module concept",
+      "model.cap12":"Coastal floating-district masterplan (PKM concept)",
       "edu.eyebrow":"Academic Background","edu.title":"Education",
       "edu.sub":"Bachelor of Civil Engineering &middot; 2021 – 2025 (completed in 9th semester)",
       "edu.thesis":"<b>Undergraduate Thesis:</b> \"Comparative Study of Concrete Performance Using Various Portland Composite Cement Products With 40% Fly Ash Substitution\"",
