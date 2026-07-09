@@ -344,6 +344,11 @@
   .spotlight-body p{font-size:14px;color:var(--muted);max-width:780px;margin-bottom:20px;}
   .spotlight-tools{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:22px;}
   .spotlight-tools span{font-size:11px;font-weight:700;background:var(--bg-soft);color:var(--navy);border:1px solid var(--line);padding:4px 9px;border-radius:5px;}
+  .doc-links{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center;margin-bottom:22px;}
+  .doc-links-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);}
+  .doc-links a{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:var(--navy);border:1px solid var(--line);border-radius:999px;padding:5px 11px;background:#fff;text-decoration:none;transition:border-color .2s var(--ease),color .2s var(--ease);}
+  .doc-links a::before{content:"\1F4C4";font-size:11px;}
+  .doc-links a:hover{border-color:var(--accent);color:var(--accent);}
   .spotlight-thumbs{display:grid;grid-template-columns:repeat(auto-fit, minmax(158px, 1fr));gap:14px;}
   .spotlight-thumbs figure{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--bg-soft);}
   .spotlight-thumbs img{width:100%;height:148px;object-fit:cover;cursor:zoom-in;transition:transform .3s var(--ease);display:block;}
@@ -897,10 +902,17 @@
         <h3 data-i18n="phr.title">DED Fire Water Pump Shelter, Platform &amp; Fondasi Equipment — CGS Duri</h3>
         <p data-i18n="phr.desc">Perhitungan dan revalidasi struktur untuk paket fasilitas produksi PT Pertamina Hulu Rokan (Duri). Lingkup mencakup pemodelan &amp; analisis shelter dan platform firewater pump (CGS-10) dengan STAAD.Pro, serta desain fondasi equipment fluid sump pump (Area 5NW &amp; 5SW) — dari kombinasi beban ASCE 7 / SNI 1726 &amp; 1727, cek rasio baja struktural, hingga dimensi &amp; daya dukung fondasi.</p>
         <div class="spotlight-tools"><span>STAAD.Pro</span><span>Structural Steel Design</span><span>Foundation Design</span><span>ASCE 7-16</span><span>SNI 1726:2019</span><span>SNI 1727:2020</span></div>
+        <div class="doc-links">
+          <span class="doc-links-label" data-i18n="phr.docs">Dokumen PDF</span>
+          <a href="assets/docs/phr-shelter-cgs10-pemodelan.pdf" target="_blank" rel="noopener">Shelter (model)</a>
+          <a href="assets/docs/phr-shelter-cgs10-analisis.pdf" target="_blank" rel="noopener">Shelter (rasio)</a>
+          <a href="assets/docs/phr-fondasi-sump-pump-5nw.pdf" target="_blank" rel="noopener">Fondasi 5NW</a>
+          <a href="assets/docs/phr-fondasi-sump-pump-5sw.pdf" target="_blank" rel="noopener">Fondasi 5SW</a>
+        </div>
         <div class="spotlight-thumbs">
           <figure>
             <img class="zoomable" src="assets/img/phr-firewater-pump-shelter-hasil-analisis-rasio-baja.png" alt="Hasil analisis STAAD rasio baja struktural Fire Water Pump Shelter">
-            <figcaption data-i18n="phr.cap1">Hasil analisis STAAD — rasio baja struktural (maks 0.814, OK)</figcaption>
+            <figcaption data-i18n="phr.cap1">Hasil analisis STAAD — rasio baja struktural (maks 0.848, OK)</figcaption>
           </figure>
           <figure>
             <img class="zoomable" src="assets/img/phr-fondasi-sump-pump-5nw-layout.png" alt="Layout dan dimensi fondasi Sump Pump Area 5NW">
@@ -924,18 +936,25 @@
         <h3 data-i18n="phr2.title">DED Pipe Support — Penggantian Pipa GFW &amp; Produksi Minyak (Gulamo)</h3>
         <p data-i18n="phr2.desc">Desain pipe support baru untuk dua paket penggantian pipa di area PT Pertamina Hulu Rokan: jalur ground fire water (GFW) CGS-1 s.d. CGS-3 (Type-1A) dan pipa produksi minyak 6" Gulamo (Type-1A1). Lingkup mencakup pemodelan single-pile cantilever di STAAD.Pro, penentuan beban angin (ASCE 7 / SNI 1727) &amp; gempa (SNI 1726:2019), hingga cek rasio baja struktural, defleksi, dan simpangan horizontal.</p>
         <div class="spotlight-tools"><span>STAAD.Pro</span><span>Pipe Support Design</span><span>ASCE 7-16</span><span>SNI 1726:2019</span><span>SNI 1727:2020</span><span>Steel Ratio Check</span></div>
+        <div class="doc-links">
+          <span class="doc-links-label" data-i18n="phr.docs">Dokumen PDF</span>
+          <a href="assets/docs/phr-pipe-support-gfw-pemodelan.pdf" target="_blank" rel="noopener">GFW (model)</a>
+          <a href="assets/docs/phr-pipe-support-gfw-desain.pdf" target="_blank" rel="noopener">GFW (desain)</a>
+          <a href="assets/docs/phr-pipe-support-gulamo-1a2.pdf" target="_blank" rel="noopener">Gulamo 1A2</a>
+          <a href="assets/docs/phr-pipe-support-gulamo-1b-anchor.pdf" target="_blank" rel="noopener">Gulamo 1B</a>
+        </div>
         <div class="spotlight-thumbs">
           <figure>
-            <img class="zoomable" src="assets/img/phr-pipe-support-gfw-beban-angin-gempa.png" alt="Beban angin dan parameter gempa pipe support GFW Type-1A">
-            <figcaption data-i18n="phr2.cap1">Beban angin &amp; parameter gempa pipe support GFW (SNI 1726:2019)</figcaption>
+            <img class="zoomable" src="assets/img/phr-pipe-support-gfw-beban-angin-gempa.png" alt="Data tanah dan dimensi pedestal footing pipe support GFW">
+            <figcaption data-i18n="phr2.cap1">Data tanah &amp; dimensi pedestal/footing — pipe support GFW</figcaption>
           </figure>
           <figure>
-            <img class="zoomable" src="assets/img/phr-pipe-support-gulamo-beban-rencana.png" alt="Beban rencana pipe support Gulamo Type-1A1">
-            <figcaption data-i18n="phr2.cap2">Beban rencana pipe support Gulamo — beban mati &amp; beban pipa</figcaption>
+            <img class="zoomable" src="assets/img/phr-pipe-support-gulamo-beban-rencana.png" alt="Pemodelan struktur pipe support Gulamo Type-1A2">
+            <figcaption data-i18n="phr2.cap2">Pemodelan struktur pipe support Gulamo (Type-1A2)</figcaption>
           </figure>
           <figure>
-            <img class="zoomable" src="assets/img/phr-pipe-support-gulamo-hasil-analisis-staad.png" alt="Hasil analisis STAAD pipe support Gulamo Type-1A1">
-            <figcaption data-i18n="phr2.cap3">Hasil analisis STAAD Gulamo — rasio baja (maks 0.891) &amp; defleksi</figcaption>
+            <img class="zoomable" src="assets/img/phr-pipe-support-gulamo-hasil-analisis-staad.png" alt="Pemodelan pipe support Gulamo Type-1B anchor">
+            <figcaption data-i18n="phr2.cap3">Pemodelan pipe support Gulamo (Type-1B anchor)</figcaption>
           </figure>
         </div>
       </div>
@@ -1389,15 +1408,16 @@
       "phr.cat":"Oil &amp; Gas — PT Pertamina Hulu Rokan",
       "phr.title":"DED Fire Water Pump Shelter, Platform &amp; Fondasi Equipment — CGS Duri",
       "phr.desc":"Perhitungan dan revalidasi struktur untuk paket fasilitas produksi PT Pertamina Hulu Rokan (Duri). Lingkup mencakup pemodelan &amp; analisis shelter dan platform firewater pump (CGS-10) dengan STAAD.Pro, serta desain fondasi equipment fluid sump pump (Area 5NW &amp; 5SW) — dari kombinasi beban ASCE 7 / SNI 1726 &amp; 1727, cek rasio baja struktural, hingga dimensi &amp; daya dukung fondasi.",
-      "phr.cap1":"Hasil analisis STAAD — rasio baja struktural (maks 0.814, OK)",
+      "phr.cap1":"Hasil analisis STAAD — rasio baja struktural (maks 0.848, OK)",
       "phr.cap2":"Fondasi fluid sump pump Area 5NW — layout &amp; dimensi",
       "phr.cap3":"Fondasi fluid sump pump Area 5SW — layout &amp; dimensi",
+      "phr.docs":"Dokumen PDF",
       "phr2.cat":"Oil &amp; Gas — PT Pertamina Hulu Rokan",
       "phr2.title":"DED Pipe Support — Penggantian Pipa GFW &amp; Produksi Minyak (Gulamo)",
       "phr2.desc":"Desain pipe support baru untuk dua paket penggantian pipa di area PT Pertamina Hulu Rokan: jalur ground fire water (GFW) CGS-1 s.d. CGS-3 (Type-1A) dan pipa produksi minyak 6\" Gulamo (Type-1A1). Lingkup mencakup pemodelan single-pile cantilever di STAAD.Pro, penentuan beban angin (ASCE 7 / SNI 1727) &amp; gempa (SNI 1726:2019), hingga cek rasio baja struktural, defleksi, dan simpangan horizontal.",
-      "phr2.cap1":"Beban angin &amp; parameter gempa pipe support GFW (SNI 1726:2019)",
-      "phr2.cap2":"Beban rencana pipe support Gulamo — beban mati &amp; beban pipa",
-      "phr2.cap3":"Hasil analisis STAAD Gulamo — rasio baja (maks 0.891) &amp; defleksi",
+      "phr2.cap1":"Data tanah &amp; dimensi pedestal/footing — pipe support GFW",
+      "phr2.cap2":"Pemodelan struktur pipe support Gulamo (Type-1A2)",
+      "phr2.cap3":"Pemodelan pipe support Gulamo (Type-1B anchor)",
       "card2.cat":"Building Structure — IKN, Kalimantan Timur",
       "card2.title":"Basilika &amp; Gereja — Kawasan Peribadatan IKN",
       "card2.desc":"Detail penulangan kolom (K1 400×400 &amp; K2 450×450) untuk proyek Adhi–Wiswakharman KSO di Kawasan Peribadatan IKN, Penajam Paser Utara.",
@@ -1503,15 +1523,16 @@
       "phr.cat":"Oil &amp; Gas — PT Pertamina Hulu Rokan",
       "phr.title":"DED Fire Water Pump Shelter, Platform &amp; Equipment Foundation — CGS Duri",
       "phr.desc":"Structural calculation and revalidation for PT Pertamina Hulu Rokan production facilities (Duri). The scope covers modeling &amp; analysis of the firewater pump shelter and platform (CGS-10) in STAAD.Pro, plus foundation design for the fluid sump pump equipment (Areas 5NW &amp; 5SW) — from ASCE 7 / SNI 1726 &amp; 1727 load combinations and structural steel ratio checks to foundation dimensions and bearing capacity.",
-      "phr.cap1":"STAAD analysis result — structural steel ratio (max 0.814, OK)",
+      "phr.cap1":"STAAD analysis result — structural steel ratio (max 0.848, OK)",
       "phr.cap2":"Fluid sump pump foundation, Area 5NW — layout &amp; dimensions",
       "phr.cap3":"Fluid sump pump foundation, Area 5SW — layout &amp; dimensions",
+      "phr.docs":"PDF documents",
       "phr2.cat":"Oil &amp; Gas — PT Pertamina Hulu Rokan",
       "phr2.title":"DED Pipe Support — GFW &amp; Oil Production (Gulamo) Pipe Replacement",
       "phr2.desc":"New pipe support design for two pipe-replacement packages at PT Pertamina Hulu Rokan: the ground fire water (GFW) line CGS-1 to CGS-3 (Type-1A) and the 6\" Gulamo oil production pipe (Type-1A1). The scope covers single-pile cantilever modeling in STAAD.Pro, wind (ASCE 7 / SNI 1727) &amp; seismic (SNI 1726:2019) load determination, and checks on structural steel ratio, deflection, and horizontal displacement.",
-      "phr2.cap1":"GFW pipe support wind &amp; seismic parameters (SNI 1726:2019)",
-      "phr2.cap2":"Gulamo pipe support design loads — dead load &amp; pipe loads",
-      "phr2.cap3":"Gulamo STAAD analysis result — steel ratio (max 0.891) &amp; deflection",
+      "phr2.cap1":"GFW pipe support — soil data &amp; pedestal/footing dimensions",
+      "phr2.cap2":"Gulamo pipe support structural model (Type-1A2)",
+      "phr2.cap3":"Gulamo pipe support structural model (Type-1B anchor)",
       "card2.cat":"Building Structure — IKN, East Kalimantan",
       "card2.title":"Basilica &amp; Church — IKN Religious Complex",
       "card2.desc":"Column reinforcement details (K1 400×400 &amp; K2 450×450) for the Adhi–Wiswakharman KSO project at the IKN Religious Complex, Penajam Paser Utara.",
