@@ -42,7 +42,7 @@
   img{max-width:100%;display:block;}
   a{color:inherit;text-decoration:none;}
   .container{max-width:1080px;margin:0 auto;padding:0 32px;}
-  section{padding:88px 0;}
+  section{padding:96px 0;}
   h1,h2,h3,h4{font-weight:700;letter-spacing:-0.01em;}
   .eyebrow{
     text-transform:uppercase;
@@ -135,11 +135,16 @@
 
   /* HERO */
   .hero{
-    padding:96px 0 80px;
+    padding:96px 0 132px;
     background:linear-gradient(180deg,var(--bg-soft) 0%, #fff 100%);
     border-bottom:1px solid var(--line);
     position:relative;overflow:hidden;
   }
+  .epc-silhouette{
+    position:absolute;left:0;right:0;bottom:0;width:100%;
+    z-index:0;pointer-events:none;color:var(--navy);opacity:.075;line-height:0;
+  }
+  .epc-silhouette svg{width:100%;height:auto;display:block;}
   .blob{position:absolute;border-radius:50%;filter:blur(2px);pointer-events:none;}
   .blob-1{
     top:-140px;right:-120px;width:380px;height:380px;
@@ -160,7 +165,7 @@
     50%{transform:translate(24px,-22px) scale(1.06);}
   }
   .hero-inner{
-    display:flex;align-items:center;gap:56px;position:relative;
+    display:flex;align-items:center;gap:56px;position:relative;z-index:1;
   }
   .hero-text{flex:1;}
   .hero-text h1{
@@ -301,7 +306,7 @@
     color:#9aa2b1;font-size:12.5px;
   }
   .img-placeholder svg{flex-shrink:0;}
-  .tl-gallery{margin-top:16px;display:grid;grid-template-columns:repeat(auto-fill, minmax(158px,1fr));gap:12px;}
+  .tl-gallery{margin-top:18px;display:grid;grid-template-columns:repeat(auto-fill, minmax(158px,1fr));gap:14px;}
   .tl-gallery figure{margin:0;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff;transition:box-shadow .25s var(--ease),transform .25s var(--ease);}
   .tl-gallery figure:hover{box-shadow:0 12px 24px rgba(22,34,63,.12);transform:translateY(-2px);}
   .tl-shot{height:148px;overflow:hidden;background:var(--bg-soft);}
@@ -404,7 +409,7 @@
   .cert-item.slot:hover{box-shadow:none;transform:none;border-color:var(--accent);}
 
   /* 3D MODELING GALLERY */
-  .model-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(300px,1fr));gap:18px;}
+  .model-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(300px,1fr));gap:22px;}
   .model-item{
     border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;
     transition:box-shadow .25s var(--ease), transform .25s var(--ease);
@@ -543,7 +548,7 @@
   }
 
   @media print{
-    header.nav, .hero-cta, .contact-links, .blob{display:none;}
+    header.nav, .hero-cta, .contact-links, .blob, .epc-silhouette{display:none;}
     section{padding:28px 0;}
     body{font-size:12px;}
     .reveal{opacity:1 !important;transform:none !important;}
@@ -580,6 +585,64 @@
 <section class="hero">
   <div class="blob blob-1"></div>
   <div class="blob blob-2"></div>
+  <div class="epc-silhouette" aria-hidden="true">
+    <svg viewBox="0 0 1440 250" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+      <rect x="0" y="246" width="1440" height="4"/>
+      <!-- pipe rack -->
+      <g>
+        <rect x="40" y="150" width="6" height="96"/><rect x="130" y="150" width="6" height="96"/><rect x="220" y="150" width="6" height="96"/>
+        <rect x="20" y="150" width="220" height="6"/><rect x="20" y="166" width="220" height="4"/><rect x="20" y="176" width="220" height="3"/>
+        <rect x="235" y="118" width="5" height="128"/>
+        <path d="M235 120 q0 -14 14 -14 h22 v6 h-22 q-8 0 -8 8 z"/>
+      </g>
+      <!-- distillation column (tall) -->
+      <g>
+        <rect x="322" y="230" width="60" height="16"/><rect x="330" y="66" width="44" height="180"/>
+        <ellipse cx="352" cy="66" rx="22" ry="12"/>
+        <rect x="322" y="104" width="60" height="4"/><rect x="322" y="150" width="60" height="4"/><rect x="322" y="196" width="60" height="4"/>
+        <rect x="374" y="90" width="16" height="3"/><rect x="314" y="128" width="16" height="3"/>
+      </g>
+      <!-- derrick / drilling rig -->
+      <g>
+        <polygon points="428,246 470,58 500,58 542,246"/>
+        <rect x="466" y="44" width="38" height="14"/>
+        <rect x="418" y="150" width="134" height="5"/>
+        <polygon points="470,58 500,58 485,30"/>
+      </g>
+      <!-- pumpjack -->
+      <g>
+        <path d="M658 246 L676 152 L694 246 L683 246 L676 184 L669 246 Z"/>
+        <polygon points="612,150 742,138 742,150 612,162"/>
+        <rect x="600" y="150" width="20" height="42" rx="3"/>
+        <rect x="606" y="150" width="5" height="96"/>
+        <path d="M735 138 q24 0 26 17 q1 11 -12 12 l-14 -5 z"/>
+        <rect x="748" y="150" width="4" height="96"/>
+      </g>
+      <!-- spherical storage tank -->
+      <g>
+        <circle cx="822" cy="176" r="52"/>
+        <rect x="800" y="222" width="5" height="24"/><rect x="816" y="226" width="5" height="20"/><rect x="828" y="226" width="5" height="20"/><rect x="844" y="222" width="5" height="24"/>
+        <rect x="818" y="118" width="8" height="10"/>
+      </g>
+      <!-- column (short) -->
+      <g>
+        <rect x="905" y="130" width="36" height="116"/><ellipse cx="923" cy="130" rx="18" ry="9"/>
+        <rect x="899" y="164" width="48" height="3"/><rect x="899" y="196" width="48" height="3"/>
+      </g>
+      <!-- flare stack -->
+      <g>
+        <rect x="1000" y="42" width="11" height="204"/>
+        <polygon points="1011,120 1042,246 1032,246 1011,150"/>
+        <rect x="1011" y="150" width="28" height="3"/><rect x="1011" y="185" width="24" height="3"/>
+        <path d="M1000 42 C 994 24 1006 18 1004 3 C 1014 14 1020 27 1011 42 Z"/>
+      </g>
+      <!-- storage tanks -->
+      <g>
+        <rect x="1085" y="184" width="150" height="62"/><ellipse cx="1160" cy="184" rx="75" ry="12"/>
+        <rect x="1255" y="162" width="160" height="84"/><ellipse cx="1335" cy="162" rx="80" ry="13"/>
+      </g>
+    </svg>
+  </div>
   <div class="container hero-inner">
     <div class="hero-text">
       <div class="eyebrow">Civil Engineer</div>
