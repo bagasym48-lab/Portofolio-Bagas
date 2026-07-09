@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bagas Yoga Mahendra — Civil Engineer Portfolio</title>
+<style>
+  :root{
+    --navy:#16223f;
+    --navy-dark:#0b1224;
+    --navy-2:#233a63;
+    --accent:#c9a24b;
+    --accent-2:#e8c877;
+    --accent-soft:#f4e9d3;
+    --teal:#2e8b74;
+    --teal-soft:#dcf0ea;
+    --ink:#1f2430;
+    --muted:#5b6472;
+    --line:#e6e8ec;
+    --bg:#ffffff;
+    --bg-soft:#f6f7f9;
+    --radius:10px;
+    --ease:cubic-bezier(.22,1,.36,1);
+    --c-oil:#c9772e;
+    --c-oil-soft:#fbe9d8;
+    --c-gov:#2b5f8a;
+    --c-gov-soft:#dcebf5;
+    --c-infra:#2e8b74;
+    --c-infra-soft:#dcf0ea;
+    --c-lab:#7a4fb5;
+    --c-lab-soft:#ece2f7;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  .container{max-width:1080px;margin:0 auto;padding:0 32px;}
+  section{padding:88px 0;}
+  h1,h2,h3,h4{font-weight:700;letter-spacing:-0.01em;}
+  .eyebrow{
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    font-size:12px;
+    font-weight:600;
+    color:var(--accent);
+    margin-bottom:12px;
+  }
+  h2.section-title{
+    font-size:30px;color:var(--navy);margin-bottom:14px;
+    position:relative;display:inline-block;padding-bottom:14px;
+  }
+  h2.section-title::after{
+    content:"";position:absolute;left:0;bottom:0;height:3px;width:44px;
+    background:linear-gradient(90deg, var(--accent), var(--accent-2));
+    border-radius:3px;
+    transform-origin:left;
+    animation:growLine 1s var(--ease) both;
+  }
+  @keyframes growLine{from{transform:scaleX(0);}to{transform:scaleX(1);}}
+  .section-sub{color:var(--muted);font-size:15px;margin-bottom:44px;max-width:600px;}
+
+  .hl{
+    background:linear-gradient(180deg, transparent 62%, var(--accent-soft) 62%);
+    font-weight:600;color:var(--navy);
+    padding:0 2px;
+    transition:background .2s ease;
+  }
+  .hl:hover{background:linear-gradient(180deg, transparent 55%, var(--accent-2) 55%);}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease), transform .7s var(--ease);}
+  .reveal.is-visible{opacity:1;transform:translateY(0);}
+  .reveal.pop{transform:translateY(22px) scale(.96);}
+  .reveal.pop.is-visible{transform:translateY(0) scale(1);}
+
+  /* NAV */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,255,255,.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+    transition:box-shadow .25s ease;
+  }
+  header.nav.scrolled{box-shadow:0 6px 24px rgba(22,34,63,.08);}
+  .nav-inner{
+    max-width:1080px;margin:0 auto;padding:18px 32px;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+  }
+  .nav-inner .brand{font-weight:700;font-size:15px;letter-spacing:.02em;color:var(--navy);}
+  .nav-links{display:flex;gap:24px;list-style:none;flex:1;justify-content:center;}
+  .nav-links a{
+    font-size:13.5px;font-weight:500;color:var(--muted);
+    transition:color .15s;position:relative;padding-bottom:4px;
+  }
+  .nav-links a::after{
+    content:"";position:absolute;left:0;bottom:0;height:2px;width:0;
+    background:linear-gradient(90deg,var(--accent),var(--accent-2));
+    transition:width .25s var(--ease);
+  }
+  .nav-links a:hover{color:var(--navy);}
+  .nav-links a:hover::after,
+  .nav-links a.active::after{width:100%;}
+  .nav-links a.active{color:var(--navy);}
+  .nav-right{display:flex;align-items:center;gap:14px;}
+  .lang-switch{
+    display:flex;border:1px solid var(--line);border-radius:20px;padding:3px;background:#fff;position:relative;
+  }
+  .lang-switch button{
+    border:none;background:transparent;font-size:12px;font-weight:700;
+    padding:5px 12px;border-radius:16px;color:var(--muted);cursor:pointer;
+    transition:color .2s ease;position:relative;z-index:1;
+    font-family:inherit;
+  }
+  .lang-switch button.active{color:#fff;}
+  .lang-switch .pill{
+    position:absolute;top:3px;bottom:3px;left:3px;width:calc(50% - 3px);
+    background:linear-gradient(135deg,var(--navy),var(--navy-2));
+    border-radius:16px;transition:transform .25s var(--ease);z-index:0;
+  }
+  .lang-switch button[data-lang-btn="en"].active ~ .pill,
+  .lang-switch.en .pill{transform:translateX(100%);}
+  .nav-cta{
+    font-size:13px;font-weight:600;color:#fff;
+    background:linear-gradient(135deg,var(--navy),var(--navy-2));
+    padding:9px 18px;border-radius:6px;transition:transform .2s ease, box-shadow .2s ease;
+    position:relative;overflow:hidden;white-space:nowrap;
+  }
+  .nav-cta:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(22,34,63,.3);}
+
+  /* HERO */
+  .hero{
+    padding:96px 0 80px;
+    background:linear-gradient(180deg,var(--bg-soft) 0%, #fff 100%);
+    border-bottom:1px solid var(--line);
+    position:relative;overflow:hidden;
+  }
+  .blob{position:absolute;border-radius:50%;filter:blur(2px);pointer-events:none;}
+  .blob-1{
+    top:-140px;right:-120px;width:380px;height:380px;
+    background:radial-gradient(circle, rgba(201,162,75,.35) 0%, transparent 70%);
+    animation:floatA 14s ease-in-out infinite;
+  }
+  .blob-2{
+    bottom:-160px;left:-100px;width:320px;height:320px;
+    background:radial-gradient(circle, rgba(46,139,116,.22) 0%, transparent 70%);
+    animation:floatB 18s ease-in-out infinite;
+  }
+  @keyframes floatA{
+    0%,100%{transform:translate(0,0) scale(1);}
+    50%{transform:translate(-30px,26px) scale(1.08);}
+  }
+  @keyframes floatB{
+    0%,100%{transform:translate(0,0) scale(1);}
+    50%{transform:translate(24px,-22px) scale(1.06);}
+  }
+  .hero-inner{
+    display:flex;align-items:center;gap:56px;position:relative;
+  }
+  .hero-text{flex:1;}
+  .hero-text h1{
+    font-size:46px;margin-bottom:14px;line-height:1.15;
+    background:linear-gradient(120deg, var(--navy) 30%, var(--navy-2) 60%, var(--accent) 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero-text .role{font-size:18px;color:var(--accent);font-weight:600;margin-bottom:18px;}
+  .hero-text p.desc{color:var(--muted);font-size:15.5px;max-width:520px;margin-bottom:28px;}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:12px 22px;border-radius:6px;font-size:14px;font-weight:600;
+    transition:transform .2s var(--ease), box-shadow .2s ease;
+    position:relative;overflow:hidden;isolation:isolate;
+  }
+  .btn::before{
+    content:"";position:absolute;inset:0;z-index:-1;
+    background:linear-gradient(120deg, transparent 0%, rgba(255,255,255,.35) 50%, transparent 100%);
+    transform:translateX(-120%);
+  }
+  .btn:hover::before{transition:transform .6s ease;transform:translateX(120%);}
+  .btn-primary{background:linear-gradient(135deg,var(--navy),var(--navy-2));color:#fff;}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(22,34,63,.3);}
+  .btn-outline{border:1px solid var(--line);color:var(--navy);background:#fff;}
+  .btn-outline:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 8px 18px rgba(201,162,75,.18);}
+  .hero-photo{
+    width:220px;height:220px;border-radius:50%;
+    overflow:hidden;flex-shrink:0;
+    border:4px solid #fff;
+    box-shadow:0 12px 30px rgba(22,34,63,.2);
+    position:relative;
+  }
+  .hero-photo::before{
+    content:"";position:absolute;inset:-8px;border-radius:50%;
+    background:conic-gradient(from 0deg, var(--accent), var(--teal), var(--navy-2), var(--accent));
+    z-index:-1;animation:spin 8s linear infinite;
+    opacity:.55;
+  }
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .hero-photo img{width:100%;height:100%;object-fit:cover;}
+  .hero-stats{
+    display:flex;gap:40px;margin-top:40px;padding-top:32px;border-top:1px solid var(--line);flex-wrap:wrap;
+  }
+  .stat b{display:block;font-size:26px;color:var(--navy);}
+  .stat span{font-size:12.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;}
+
+  .highlight-strip{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:8px;
+  }
+  .hi-card{
+    border:1px solid var(--line);border-radius:var(--radius);padding:22px 18px;
+    background:#fff;transition:transform .25s var(--ease), box-shadow .25s ease, border-color .25s ease;
+    position:relative;overflow:hidden;
+  }
+  .hi-card::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg,var(--accent),var(--teal));
+    transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease);
+  }
+  .hi-card:hover::before{transform:scaleX(1);}
+  .hi-card:hover{transform:translateY(-6px);box-shadow:0 16px 32px rgba(22,34,63,.12);border-color:transparent;}
+  .hi-icon{
+    width:42px;height:42px;border-radius:10px;
+    display:flex;align-items:center;justify-content:center;margin-bottom:14px;
+    transition:transform .3s var(--ease);
+  }
+  .hi-card:hover .hi-icon{transform:scale(1.12) rotate(-6deg);}
+  .hi-card h4{font-size:14px;color:var(--navy);margin-bottom:6px;}
+  .hi-card p{font-size:12.5px;color:var(--muted);}
+
+  .about-grid{display:flex;gap:56px;align-items:flex-start;}
+  .about-text{flex:1.3;color:var(--muted);font-size:15.5px;}
+  .about-text p{margin-bottom:16px;}
+  .about-skills{flex:1;background:var(--bg-soft);border-radius:var(--radius);padding:28px;position:relative;overflow:hidden;}
+  .about-skills::before{
+    content:"";position:absolute;top:-60px;right:-60px;width:160px;height:160px;border-radius:50%;
+    background:radial-gradient(circle, rgba(201,162,75,.18), transparent 70%);
+  }
+  .about-skills h4{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--navy);margin-bottom:14px;position:relative;}
+  .tag-group{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;position:relative;}
+  .tag-group:last-child{margin-bottom:0;}
+  .tag{
+    font-size:12.5px;background:#fff;border:1px solid var(--line);color:var(--ink);
+    padding:6px 12px;border-radius:20px;transition:border-color .15s, color .15s, transform .15s, box-shadow .15s;
+  }
+  .tag:hover{border-color:var(--accent);color:var(--navy);transform:translateY(-2px);box-shadow:0 4px 10px rgba(201,162,75,.2);}
+
+  .timeline{position:relative;padding-left:44px;}
+  .timeline::before{
+    content:"";position:absolute;left:15px;top:6px;bottom:6px;width:2px;
+    background:linear-gradient(180deg, var(--accent), var(--line) 30%, var(--line) 70%, var(--teal));
+  }
+  .tl-item{position:relative;padding-bottom:48px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-badge{
+    position:absolute;left:-44px;top:0;
+    width:32px;height:32px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    border:3px solid #fff;box-shadow:0 0 0 2px var(--line);
+    color:#fff;
+  }
+  .tl-badge.oil{background:var(--c-oil);box-shadow:0 0 0 2px var(--c-oil-soft);animation:pulseOil 2.6s ease-in-out infinite;}
+  .tl-badge.gov{background:var(--c-gov);box-shadow:0 0 0 2px var(--c-gov-soft);}
+  .tl-badge.infra{background:var(--navy);box-shadow:0 0 0 2px #e3e7ef;}
+  .tl-badge.lab{background:var(--c-lab);box-shadow:0 0 0 2px var(--c-lab-soft);}
+  @keyframes pulseOil{
+    0%,100%{box-shadow:0 0 0 2px var(--c-oil-soft);}
+    50%{box-shadow:0 0 0 6px var(--c-oil-soft);}
+  }
+  .tl-head{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;margin-bottom:6px;}
+  .tl-head h3{font-size:17px;color:var(--navy);}
+  .tl-date{
+    font-size:11.5px;color:var(--navy);font-weight:700;white-space:nowrap;
+    background:var(--accent-soft);padding:3px 10px;border-radius:20px;
+  }
+  .tl-role{font-size:13.5px;color:var(--muted);font-weight:600;margin-bottom:10px;}
+  .tl-item ul{padding-left:18px;color:var(--muted);font-size:14px;}
+  .tl-item ul li{margin-bottom:5px;}
+  .tl-proj{font-size:13.5px;color:var(--ink);font-weight:600;margin:12px 0 4px;}
+  .tl-tools{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 4px;}
+  .tl-tools span{
+    font-size:11px;font-weight:700;letter-spacing:.02em;
+    background:var(--bg-soft);color:var(--navy);border:1px solid var(--line);
+    padding:4px 9px;border-radius:5px;transition:background .15s,border-color .15s;
+  }
+  .tl-tools span:hover{background:var(--accent-soft);border-color:var(--accent);}
+
+  .img-placeholder{
+    margin-top:14px;
+    border:1.5px dashed #c7cbd4;
+    border-radius:8px;
+    background:var(--bg-soft);
+    padding:22px;
+    display:flex;align-items:center;gap:12px;
+    color:#9aa2b1;font-size:12.5px;
+  }
+  .img-placeholder svg{flex-shrink:0;}
+
+  .project-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(290px,1fr));gap:24px;}
+  .project-card{
+    border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+    transition:box-shadow .3s var(--ease), transform .3s var(--ease);
+  }
+  .project-card:hover{box-shadow:0 18px 36px rgba(22,34,63,.16);transform:translateY(-4px);}
+  .project-thumb{
+    height:160px;position:relative;overflow:hidden;
+    display:flex;align-items:center;justify-content:center;
+    border-bottom:1px solid var(--line);
+  }
+  .project-thumb::after{
+    content:"";position:absolute;inset:0;
+    background-image:repeating-linear-gradient(135deg, rgba(255,255,255,.14) 0 10px, transparent 10px 20px);
+  }
+  .project-thumb svg{position:relative;z-index:1;opacity:.95;transition:transform .35s var(--ease);}
+  .project-card:hover .project-thumb svg{transform:scale(1.15) rotate(4deg);}
+  .project-thumb.oil{background:linear-gradient(135deg, var(--c-oil), #a6601f);}
+  .project-thumb.gov{background:linear-gradient(135deg, var(--c-gov), #1c3f5c);}
+  .project-thumb.infra{background:linear-gradient(135deg, var(--navy), var(--navy-dark));}
+  .project-thumb.photo{padding:0;}
+  .project-thumb.photo::after{display:none;}
+  .project-thumb.photo img{width:100%;height:100%;object-fit:cover;cursor:zoom-in;transition:transform .35s var(--ease);}
+  .project-card:hover .project-thumb.photo img{transform:scale(1.06);}
+
+  /* PROJECT SPOTLIGHT */
+  .spotlight{
+    border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:36px;
+    background:#fff;box-shadow:0 12px 34px rgba(22,34,63,.08);
+  }
+  .spotlight-main{position:relative;line-height:0;}
+  .spotlight-main img{width:100%;display:block;aspect-ratio:16/10;object-fit:cover;cursor:zoom-in;}
+  .spotlight-badge{
+    position:absolute;top:16px;left:16px;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));color:var(--navy-dark);
+    font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;
+    padding:7px 13px;border-radius:6px;box-shadow:0 4px 12px rgba(22,34,63,.25);
+  }
+  .spotlight-body{padding:24px 26px;}
+  .spotlight-body .cat{font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);font-weight:700;margin-bottom:6px;}
+  .spotlight-body h3{font-size:19px;color:var(--navy);margin-bottom:8px;}
+  .spotlight-body p{font-size:14px;color:var(--muted);max-width:780px;margin-bottom:20px;}
+  .spotlight-tools{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:22px;}
+  .spotlight-tools span{font-size:11px;font-weight:700;background:var(--bg-soft);color:var(--navy);border:1px solid var(--line);padding:4px 9px;border-radius:5px;}
+  .spotlight-thumbs{display:grid;grid-template-columns:repeat(auto-fit, minmax(158px, 1fr));gap:14px;}
+  .spotlight-thumbs figure{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--bg-soft);}
+  .spotlight-thumbs img{width:100%;height:148px;object-fit:cover;cursor:zoom-in;transition:transform .3s var(--ease);display:block;}
+  .spotlight-thumbs figure:hover img{transform:scale(1.07);}
+  .spotlight-thumbs figcaption{font-size:11.5px;color:var(--muted);padding:9px 11px;font-weight:600;line-height:1.4;}
+  .spotlight-badge.static{position:static;display:inline-block;margin-bottom:14px;}
+  /* portrait-friendly site photo gallery */
+  .site-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(178px,1fr));gap:14px;margin-top:20px;}
+  .site-tile{border:1px solid var(--line);border-radius:9px;overflow:hidden;background:var(--bg-soft);}
+  .site-tile img{width:100%;height:250px;object-fit:cover;object-position:center;cursor:zoom-in;transition:transform .3s var(--ease);display:block;}
+  .site-tile.top img{object-position:top;}
+  .site-tile:hover img{transform:scale(1.05);}
+  .site-tile figcaption{font-size:11.5px;color:var(--muted);padding:9px 11px;font-weight:600;line-height:1.4;}
+
+  /* LIGHTBOX */
+  .lightbox{
+    position:fixed;inset:0;background:rgba(8,14,26,.93);display:none;
+    align-items:center;justify-content:center;z-index:200;padding:32px;cursor:zoom-out;
+    opacity:0;transition:opacity .2s ease;
+  }
+  .lightbox.open{display:flex;opacity:1;}
+  .lightbox img{max-width:95%;max-height:92%;border-radius:6px;box-shadow:0 24px 70px rgba(0,0,0,.55);cursor:default;}
+  .lightbox .lb-close{position:absolute;top:18px;right:28px;color:#fff;font-size:38px;line-height:1;cursor:pointer;font-weight:300;opacity:.85;}
+  .lightbox .lb-close:hover{opacity:1;}
+
+  /* CERTIFICATE / PIAGAM GALLERY */
+  .cert-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(210px,1fr));gap:20px;}
+  .cert-item{
+    border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;
+    transition:box-shadow .25s var(--ease), transform .25s var(--ease);
+  }
+  .cert-item:hover{box-shadow:0 14px 30px rgba(22,34,63,.12);transform:translateY(-3px);}
+  .cert-thumb{
+    height:240px;background:var(--bg-soft);display:flex;align-items:center;justify-content:center;
+    border-bottom:1px solid var(--line);overflow:hidden;position:relative;
+  }
+  .cert-thumb img{width:100%;height:100%;object-fit:contain;background:#fff;cursor:zoom-in;padding:6px;}
+  .cert-caption{padding:12px 14px;font-size:12.5px;color:var(--navy);font-weight:600;line-height:1.4;}
+  .cert-caption span{display:block;font-size:11.5px;color:var(--muted);font-weight:500;margin-top:2px;}
+  /* empty placeholder slot */
+  .cert-item.slot{border-style:dashed;border-color:#c7cbd4;}
+  .cert-item.slot .cert-thumb{color:#9aa2b1;flex-direction:column;gap:10px;text-align:center;padding:16px;}
+  .cert-item.slot .cert-thumb small{font-size:11.5px;max-width:150px;line-height:1.5;}
+  .cert-item.slot:hover{box-shadow:none;transform:none;border-color:var(--accent);}
+
+  .project-overlay{
+    position:absolute;inset:auto 0 0 0;padding:10px 14px;
+    background:rgba(0,0,0,.35);color:#fff;font-size:11px;font-weight:600;
+    letter-spacing:.02em;transform:translateY(100%);transition:transform .25s var(--ease);z-index:2;
+  }
+  .project-card:hover .project-overlay{transform:translateY(0);}
+  .project-body{padding:20px;}
+  .project-body .cat{font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);font-weight:700;margin-bottom:6px;}
+  .project-body h3{font-size:15.5px;color:var(--navy);margin-bottom:8px;}
+  .project-body p{font-size:13.5px;color:var(--muted);}
+
+  .edu-card{
+    border:1px solid var(--line);border-radius:var(--radius);padding:28px;
+    display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;
+    transition:box-shadow .25s ease;
+  }
+  .edu-card:hover{box-shadow:0 14px 30px rgba(22,34,63,.1);}
+  .edu-card h3{font-size:18px;color:var(--navy);margin-bottom:4px;}
+  .edu-card .edu-sub{font-size:13.5px;color:var(--muted);margin-bottom:14px;}
+  .edu-card .thesis{font-size:13.5px;color:var(--ink);background:var(--bg-soft);padding:14px 16px;border-radius:8px;}
+  .edu-gpa{text-align:right;}
+  .edu-gpa b{
+    font-size:32px;display:block;
+    background:linear-gradient(120deg,var(--navy),var(--accent));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .edu-gpa span{font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;}
+
+  .training-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .training-card{
+    border:1.5px dashed #c7cbd4;border-radius:var(--radius);
+    padding:24px;background:var(--bg-soft);text-align:left;
+    color:#9aa2b1;transition:border-color .2s ease, background .2s ease;
+  }
+  .training-card:hover{border-color:var(--accent);background:var(--accent-soft);}
+  .training-card svg{margin-bottom:12px;color:#b6bcc7;}
+  .training-card h4{font-size:13.5px;color:#8790a0;margin-bottom:4px;}
+  .training-card p{font-size:12px;line-height:1.5;}
+
+  /* COMPETENCY / PROFESSIONAL CREDENTIALS */
+  .cred-head{font-size:16px;color:var(--navy);font-weight:700;margin:44px 0 18px;display:flex;align-items:center;gap:10px;}
+  .cred-head::before{content:"";width:22px;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent-2));border-radius:2px;}
+  .cred-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+  .cred-card{
+    display:flex;gap:15px;border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;background:#fff;
+    transition:box-shadow .25s var(--ease), transform .25s var(--ease), border-color .25s ease;
+  }
+  .cred-card:hover{box-shadow:0 12px 28px rgba(22,34,63,.1);transform:translateY(-3px);border-color:transparent;}
+  .cred-icon{
+    flex-shrink:0;width:42px;height:42px;border-radius:10px;
+    background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;
+  }
+  .cred-body{min-width:0;}
+  .cred-body h4{font-size:14px;color:var(--navy);margin-bottom:3px;line-height:1.35;}
+  .cred-body .issuer{font-size:12.5px;color:var(--muted);margin-bottom:9px;}
+  .cred-body .certno{
+    display:inline-block;font-size:11px;color:var(--navy);background:var(--bg-soft);
+    border:1px solid var(--line);border-radius:5px;padding:3px 9px;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.01em;word-break:break-all;
+  }
+  .cred-body .certno b{color:var(--accent);font-weight:700;}
+  @media(max-width:640px){.cred-grid{grid-template-columns:1fr;}}
+
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:56px;}
+  .org-item{margin-bottom:22px;padding-left:14px;border-left:2px solid var(--line);transition:border-color .2s ease;}
+  .org-item:hover{border-color:var(--accent);}
+  .org-item h4{font-size:14.5px;color:var(--navy);margin-bottom:2px;}
+  .org-item .org-role{font-size:12.5px;color:var(--accent);font-weight:600;margin-bottom:6px;}
+  .org-item ul{padding-left:18px;color:var(--muted);font-size:13.5px;}
+  .achv-list{list-style:none;}
+  .achv-list li{
+    display:flex;justify-content:space-between;align-items:center;gap:12px;
+    padding:12px 14px;border-bottom:1px solid var(--line);font-size:13.5px;
+    transition:padding-left .2s var(--ease), background .2s ease;
+    border-radius:6px;
+  }
+  .achv-list li:hover{padding-left:20px;background:var(--bg-soft);}
+  .achv-list li:last-child{border-bottom:none;}
+  .achv-list .yr{
+    color:var(--navy);font-weight:700;white-space:nowrap;
+    background:linear-gradient(120deg,var(--accent-soft),var(--accent-2));
+    padding:3px 10px;border-radius:5px;font-size:12px;
+  }
+
+  .contact{
+    background:linear-gradient(160deg, var(--navy), var(--navy-dark));color:#fff;text-align:center;position:relative;overflow:hidden;
+  }
+  .contact .blob{opacity:.5;}
+  .contact-blob-1{top:-160px;left:20%;width:420px;height:320px;background:radial-gradient(circle, rgba(201,162,75,.22) 0%, transparent 70%);animation:floatA 16s ease-in-out infinite;}
+  .contact-blob-2{bottom:-160px;right:10%;width:360px;height:300px;background:radial-gradient(circle, rgba(46,139,116,.22) 0%, transparent 70%);animation:floatB 20s ease-in-out infinite;}
+  .contact h2{color:#fff;font-size:30px;margin-bottom:12px;position:relative;}
+  .contact p{color:#b9c2d6;max-width:480px;margin:0 auto 32px;font-size:15px;position:relative;}
+  .contact-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;position:relative;}
+  .contact-links a{
+    display:flex;align-items:center;gap:8px;
+    background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);
+    padding:11px 20px;border-radius:6px;font-size:13.5px;font-weight:600;
+    transition:background .2s ease, transform .2s var(--ease), border-color .2s ease;
+  }
+  .contact-links a:hover{background:rgba(255,255,255,.16);transform:translateY(-3px);border-color:var(--accent);}
+  footer{
+    background:var(--navy-dark);color:#8a93a8;text-align:center;
+    padding:22px 0;font-size:12.5px;
+  }
+
+  @media(max-width:900px){
+    .nav-links{display:none;}
+  }
+  @media(max-width:820px){
+    .hero-inner{flex-direction:column-reverse;text-align:center;}
+    .hero-cta{justify-content:center;}
+    .hero-stats{justify-content:center;flex-wrap:wrap;}
+    .about-grid{flex-direction:column;}
+    .two-col{grid-template-columns:1fr;gap:0;}
+    .project-grid{grid-template-columns:1fr;}
+    .spotlight-thumbs{grid-template-columns:1fr;}
+    .highlight-strip{grid-template-columns:1fr 1fr;}
+    .training-grid{grid-template-columns:1fr;}
+    h2.section-title{font-size:24px;}
+    .hero-text h1{font-size:32px;}
+    .timeline{padding-left:38px;}
+  }
+
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none !important;transition:none !important;}
+  }
+
+  @media print{
+    header.nav, .hero-cta, .contact-links, .blob{display:none;}
+    section{padding:28px 0;}
+    body{font-size:12px;}
+    .reveal{opacity:1 !important;transform:none !important;}
+    .hero-text h1, .edu-gpa b{-webkit-text-fill-color:initial;background:none;color:var(--navy) !important;}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav" id="siteNav">
+  <div class="nav-inner">
+    <div class="brand">BAGAS YOGA MAHENDRA</div>
+    <ul class="nav-links">
+      <li><a href="#about" data-nav data-i18n="nav.about">Tentang</a></li>
+      <li><a href="#experience" data-nav data-i18n="nav.experience">Pengalaman</a></li>
+      <li><a href="#projects" data-nav data-i18n="nav.projects">Proyek</a></li>
+      <li><a href="#education" data-nav data-i18n="nav.education">Pendidikan</a></li>
+      <li><a href="#training" data-nav data-i18n="nav.training">Pelatihan</a></li>
+      <li><a href="#achievements" data-nav data-i18n="nav.achievements">Prestasi</a></li>
+      <li><a href="#certificates" data-nav data-i18n="nav.certificates">Sertifikat</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-switch" id="langSwitch">
+        <div class="pill"></div>
+        <button type="button" data-lang-btn="id" class="active">ID</button>
+        <button type="button" data-lang-btn="en">EN</button>
+      </div>
+      <a class="nav-cta" href="#contact" data-i18n="nav.cta">Hubungi Saya</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <div class="eyebrow">Civil Engineer</div>
+      <h1>Bagas Yoga Mahendra</h1>
+      <div class="role">Junior Civil Engineer — Structural &amp; Site Engineering</div>
+      <p class="desc" data-i18n="hero.desc">Junior Civil Engineer dengan pengalaman di <span class="hl">industri EPC (Engineering, Procurement, Construction)</span>, fokus pada analisis dan desain struktur — termasuk pondasi dangkal, pondasi blok, dan structural modeling menggunakan <span class="hl">STAAD.Pro berbasis SNI 2847:2019</span>. Terbiasa bekerja lintas disiplin dalam proyek industri, dengan ketertarikan kuat pada pengembangan tools berbasis teknologi untuk mempercepat proses engineering.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#contact" data-i18n="nav.cta">Hubungi Saya</a>
+        <a class="btn btn-outline" href="#experience" data-i18n="hero.ctaOutline">Lihat Pengalaman</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><b data-count="4" data-suffix="+">0</b><span data-i18n="hero.stat1">Proyek Rekayasa</span></div>
+        <div class="stat"><b data-count="3.45" data-decimal="1">0</b><span data-i18n="hero.stat2">IPK</span></div>
+        <div class="stat"><b data-count="12">0</b><span>Software Engineering</span></div>
+        <div class="stat"><b data-count="8" data-suffix="+">0</b><span data-i18n="hero.stat4">Penghargaan</span></div>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="assets/img/foto-bagas-yoga-mahendra.jpg" alt="Foto Bagas Yoga Mahendra">
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="eyebrow" data-i18n="about.eyebrow">Tentang Saya</div>
+    <h2 class="section-title reveal" data-i18n="about.title">Profil Singkat</h2>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p data-i18n="about.p1">Saya adalah lulusan Teknik Sipil <span class="hl">Universitas Diponegoro</span> (2021–2025) dengan IPK 3.45, saat ini bekerja sebagai Junior Civil Engineer di <span class="hl">PT Rekayasa Engineering</span>, menangani perhitungan struktur untuk proyek-proyek migas bersama PT Pertamina Hulu Rokan.</p>
+        <p data-i18n="about.p2">Pengalaman saya mencakup analisis struktur bangunan gedung menggunakan <span class="hl">SAP2000 &amp; ETABS</span>, perhitungan pipe support dan pondasi peralatan industri, hingga pengawasan pelaksanaan konstruksi di lapangan pada proyek jalan tol dan tanggul laut berskala nasional.</p>
+        <p data-i18n="about.p3">Di luar pekerjaan teknis, saya aktif di organisasi kemahasiswaan bidang keilmuan sipil dan telah meraih <span class="hl">berbagai prestasi kompetisi karya tulis</span> serta lomba jembatan tingkat nasional.</p>
+      </div>
+      <div class="about-skills reveal">
+        <h4>Software &amp; Tools</h4>
+        <div class="tag-group">
+          <span class="tag">AutoCAD</span>
+          <span class="tag">SAP2000</span>
+          <span class="tag">ETABS</span>
+          <span class="tag">Civil 3D</span>
+          <span class="tag">Revit</span>
+          <span class="tag">Tekla Structures</span>
+          <span class="tag">STAAD-Pro</span>
+          <span class="tag">spColumn</span>
+          <span class="tag">ArcGIS</span>
+          <span class="tag">Lumion</span>
+          <span class="tag">Enscape</span>
+          <span class="tag">SketchUp</span>
+          <span class="tag">MS Project</span>
+        </div>
+        <h4 data-i18n="lang.title">Bahasa</h4>
+        <div class="tag-group">
+          <span class="tag" data-i18n="lang.tag1">Bahasa Indonesia — Native</span>
+          <span class="tag">English — TOEFL 523</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="highlight-strip" style="margin-top:56px;">
+      <div class="hi-card reveal pop">
+        <div class="hi-icon" style="background:var(--c-oil-soft);color:var(--c-oil);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><line x1="12" y1="12" x2="16" y2="8"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></svg>
+        </div>
+        <h4 data-i18n="hi1.title">Analisis Struktur Migas</h4>
+        <p data-i18n="hi1.desc">Perhitungan pipe support &amp; pondasi peralatan untuk fasilitas PT Pertamina Hulu Rokan.</p>
+      </div>
+      <div class="hi-card reveal pop">
+        <div class="hi-icon" style="background:var(--c-gov-soft);color:var(--c-gov);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="9" width="16" height="12"/><polygon points="12,3 21,9 3,9"/><line x1="9" y1="21" x2="9" y2="12"/><line x1="15" y1="21" x2="15" y2="12"/></svg>
+        </div>
+        <h4 data-i18n="hi2.title">Pemodelan Struktur Gedung</h4>
+        <p data-i18n="hi2.desc">Analisis &amp; penulangan struktur gedung pemerintahan dengan SAP2000 dan ETABS.</p>
+      </div>
+      <div class="hi-card reveal pop">
+        <div class="hi-icon" style="background:#e3e7ef;color:var(--navy);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="12" y1="2" x2="8" y2="22"/><line x1="17" y1="2" x2="21" y2="22"/><line x1="12" y1="8" x2="11" y2="12" stroke-dasharray="2 2"/><line x1="10.3" y1="16" x2="9.4" y2="20" stroke-dasharray="2 2"/></svg>
+        </div>
+        <h4 data-i18n="hi3.title">Pengawasan Infrastruktur</h4>
+        <p data-i18n="hi3.desc">Site engineering pada proyek jalan tol dan tanggul laut berskala nasional.</p>
+      </div>
+      <div class="hi-card reveal pop">
+        <div class="hi-icon" style="background:var(--c-lab-soft);color:var(--c-lab);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3"/></svg>
+        </div>
+        <h4 data-i18n="hi4.title">Riset Material Beton</h4>
+        <p data-i18n="hi4.desc">Tugas akhir tentang performa beton dengan substitusi fly ash 40% pada semen PCC.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience" style="background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="container">
+    <div class="eyebrow" data-i18n="exp.eyebrow">Rekam Jejak</div>
+    <h2 class="section-title reveal" data-i18n="exp.title">Pengalaman Profesional</h2>
+    <p class="section-sub reveal" data-i18n="exp.sub">Perjalanan karier dari internship di proyek infrastruktur nasional hingga peran engineering saat ini.</p>
+
+    <div class="timeline">
+
+      <div class="tl-item reveal">
+        <div class="tl-badge oil">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><line x1="12" y1="12" x2="16" y2="8"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/></svg>
+        </div>
+        <div class="tl-head">
+          <h3>PT Rekayasa Engineering</h3>
+          <span class="tl-date" data-i18n="exp1.date">Nov 2025 — Sekarang</span>
+        </div>
+        <div class="tl-role">Junior Civil Engineer</div>
+        <div data-i18n="exp1.body">
+          <div class="tl-proj">DED Revalidasi Additional Fire Water Pump CGS-01 &amp; CGS-10 — PT Pertamina Hulu Rokan</div>
+          <ul><li>Perhitungan struktur shelter &amp; platform firewater pump CGS-10</li></ul>
+          <div class="tl-proj">DED Replacement of Partial Pipe 6" Gulamo Oil Production — PT Pertamina Hulu Rokan</div>
+          <ul>
+            <li>Perhitungan pipe support tipe 1</li>
+            <li>Perhitungan pipe support tipe 2</li>
+          </ul>
+          <div class="tl-proj">DED Replacement of GFW Pipes CGS-1 to CGS-5</div>
+          <ul>
+            <li>Perhitungan pipe support GFW area CGS 1–3</li>
+            <li>Perhitungan pipe support GFW area CGS 3–4</li>
+          </ul>
+          <div class="tl-proj">FEED Improvement Sump Pump Area 5 (5SW, 5NW) — PT Pertamina Hulu Rokan</div>
+          <ul>
+            <li>Perhitungan pondasi sump pump (8056-P-0902A/B) area 5SW &amp; 5NW</li>
+            <li>Survei lapangan area sump pump Rokan</li>
+          </ul>
+        </div>
+        <div class="tl-tools"><span>Structural Calculation</span><span>Pipe Support Design</span><span>Site Survey</span></div>
+        <div class="img-placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span data-i18n="exp.placeholder">Tambahkan foto/dokumentasi proyek di sini</span>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-badge gov">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="9" width="16" height="12"/><polygon points="12,3 21,9 3,9"/><line x1="9" y1="21" x2="9" y2="12"/><line x1="15" y1="21" x2="15" y2="12"/></svg>
+        </div>
+        <div class="tl-head">
+          <h3>PT Wiswakharman</h3>
+          <span class="tl-date" data-i18n="exp2.date">Okt 2024 — Okt 2025</span>
+        </div>
+        <div class="tl-role">Junior Civil Engineer (Freelance)</div>
+        <div data-i18n="exp2.body">
+          <div class="tl-proj">Merauke Provincial Governor's Office Building Construction Project</div>
+          <ul>
+            <li>Analisis struktur bangunan menggunakan SAP2000 &amp; ETABS</li>
+            <li>Perhitungan dan penggambaran penulangan struktur</li>
+          </ul>
+          <div class="tl-proj">Governor's Office, DPRD &amp; DPRK Papua Pegunungan Province</div>
+          <ul>
+            <li>Analisis struktur bangunan menggunakan SAP2000 &amp; ETABS</li>
+            <li>Perhitungan dan penggambaran penulangan struktur</li>
+          </ul>
+        </div>
+        <div class="tl-tools"><span>SAP2000</span><span>ETABS</span><span>Reinforcement Detailing</span></div>
+        <div class="img-placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span data-i18n="exp.placeholder">Tambahkan foto/dokumentasi proyek di sini</span>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-badge infra">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="2" x2="8" y2="22"/><line x1="17" y1="2" x2="21" y2="22"/><line x1="12" y1="8" x2="11" y2="12" stroke-dasharray="2 2"/><line x1="10.3" y1="16" x2="9.4" y2="20" stroke-dasharray="2 2"/></svg>
+        </div>
+        <div class="tl-head">
+          <h3>WIKA–HKI–PP–KMK (KSO)</h3>
+          <span class="tl-date">Jul 2024 — Sep 2024</span>
+        </div>
+        <div class="tl-role">Site Engineering (Internship)</div>
+        <div data-i18n="exp3.body">
+          <div class="tl-proj">Jakarta–Cikampek II South Toll Road Package 2A</div>
+          <ul>
+            <li>Mengawasi pelaksanaan pekerjaan agar sesuai desain &amp; standar mutu</li>
+            <li>Meninjau gambar kerja dan spesifikasi proyek</li>
+            <li>Koordinasi dengan konsultan pengawas, kontraktor, dan tim desain</li>
+          </ul>
+        </div>
+        <div class="tl-tools"><span>Site Supervision</span><span>QA/QC</span></div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-badge infra">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="2" x2="8" y2="22"/><line x1="17" y1="2" x2="21" y2="22"/><line x1="12" y1="8" x2="11" y2="12" stroke-dasharray="2 2"/><line x1="10.3" y1="16" x2="9.4" y2="20" stroke-dasharray="2 2"/></svg>
+        </div>
+        <div class="tl-head">
+          <h3>China Road and Bridge Corporation</h3>
+          <span class="tl-date">Jan 2024 — Feb 2024</span>
+        </div>
+        <div class="tl-role">Site Engineering (Internship)</div>
+        <div data-i18n="exp4.body">
+          <div class="tl-proj">Toll Road and Sea Dike Semarang – Demak 1B</div>
+          <ul>
+            <li>Mengawasi pelaksanaan pekerjaan agar sesuai desain &amp; standar mutu</li>
+            <li>Meninjau gambar kerja dan spesifikasi proyek</li>
+            <li>Koordinasi dengan konsultan pengawas, kontraktor, dan tim desain</li>
+          </ul>
+        </div>
+        <div class="tl-tools"><span>Site Supervision</span><span>QA/QC</span></div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-badge lab">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3"/></svg>
+        </div>
+        <div class="tl-head">
+          <h3>Construction Materials Laboratory — Universitas Diponegoro</h3>
+          <span class="tl-date">Apr 2025 — Nov 2025</span>
+        </div>
+        <div class="tl-role">Laboratory Assistant</div>
+        <div data-i18n="exp5.body">
+          <div class="tl-proj">Praktikum Mata Kuliah Teknologi Beton</div>
+          <ul>
+            <li>Mendampingi dan mengawasi praktikum Teknologi Beton</li>
+            <li>Membantu pengelolaan data dan laporan praktikum</li>
+          </ul>
+        </div>
+        <div class="tl-tools"><span>Concrete Technology</span><span>Lab Supervision</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="eyebrow" data-i18n="proj.eyebrow">Portofolio</div>
+    <h2 class="section-title reveal" data-i18n="proj.title">Proyek Unggulan</h2>
+    <p class="section-sub reveal" data-i18n="proj.sub">Sorotan proyek dengan dokumentasi nyata — dari desain arsitektur, denah, hingga pemodelan struktur. Klik gambar untuk memperbesar.</p>
+
+    <div class="spotlight reveal">
+      <div class="spotlight-main">
+        <img class="zoomable" src="assets/img/render-kantor-gubernur-papua-selatan.jpg" alt="Render Kantor Gubernur Papua Selatan">
+        <span class="spotlight-badge" data-i18n="spot.badge">Sorotan Proyek</span>
+      </div>
+      <div class="spotlight-body">
+        <div class="cat" data-i18n="spot.cat">Building Structure — Provinsi Papua Selatan</div>
+        <h3 data-i18n="spot.title">Kantor Gubernur, Gedung DPRD &amp; MRP Provinsi Papua Selatan</h3>
+        <p data-i18n="spot.desc">Basic design gedung kantor gubernur beserta gedung DPRD dan MRP. Lingkup pekerjaan mencakup analisis dan pemodelan struktur menggunakan STAAD.Pro/ETABS, penerapan rigid diaphragm &amp; joint constraint, hingga koordinasi dengan gambar arsitektur dan denah tata ruang.</p>
+        <div class="spotlight-tools"><span>STAAD.Pro</span><span>ETABS</span><span>SAP2000</span><span>SNI 2847:2019</span><span>Structural Modeling</span></div>
+        <div class="spotlight-thumbs">
+          <figure>
+            <img class="zoomable" src="assets/img/denah-lantai-1.jpg" alt="Denah Lantai 1">
+            <figcaption data-i18n="spot.cap1">Denah Lantai 1 (skala 1:250)</figcaption>
+          </figure>
+          <figure>
+            <img class="zoomable" src="assets/img/pemodelan-struktur-staad-pro.jpg" alt="Pemodelan struktur STAAD.Pro">
+            <figcaption data-i18n="spot.cap2">Pemodelan struktur — kolom, balok &amp; pelat</figcaption>
+          </figure>
+          <figure>
+            <img class="zoomable" src="assets/img/rigid-diaphragm-dan-joint-constraint.jpg" alt="Rigid diaphragm dan joint constraint">
+            <figcaption data-i18n="spot.cap3">Rigid diaphragm &amp; joint constraint</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="spotlight reveal">
+      <div class="spotlight-main">
+        <img class="zoomable" src="assets/img/pekerjaan-matras-bambu-tanggul-laut-semarang-dem.jpg" alt="Pekerjaan matras bambu tanggul laut Semarang-Demak">
+        <span class="spotlight-badge" data-i18n="spot.badge">Sorotan Proyek</span>
+      </div>
+      <div class="spotlight-body">
+        <div class="cat" data-i18n="spot2.cat">Infrastructure — CRBC–WIKA–PP JO</div>
+        <h3 data-i18n="spot2.title">Jalan Tol &amp; Tanggul Laut Semarang–Demak Paket 1B</h3>
+        <p data-i18n="spot2.desc">Proyek jalan tol dan tanggul laut Semarang–Demak Paket 1B oleh China Road and Bridge Corporation (CRBC–WIKA–PP JO). Sebagai site engineering intern, terlibat dalam pengawasan pelaksanaan, peninjauan gambar kerja, dan koordinasi lapangan — mencakup pekerjaan matras bambu (bamboo mattress) sebagai perkuatan tanah lunak serta penanganan steel pipe pile untuk fondasi.</p>
+        <div class="spotlight-tools"><span>Site Supervision</span><span>QA/QC</span><span>Bamboo Mattress</span><span>Soft Soil Treatment</span><span>Steel Pipe Pile</span></div>
+        <div class="spotlight-thumbs">
+          <figure>
+            <img class="zoomable" src="assets/img/papan-informasi-proyek-crbc-semarang-demak-1b.jpg" alt="Papan informasi proyek CRBC Semarang-Demak 1B">
+            <figcaption data-i18n="spot2.cap1">Papan informasi proyek CRBC Semarang–Demak 1B</figcaption>
+          </figure>
+          <figure>
+            <img class="zoomable" src="assets/img/steel-pipe-pile-dan-crane.jpg" alt="Steel pipe pile dan crane">
+            <figcaption data-i18n="spot2.cap2">Penanganan steel pipe pile untuk fondasi</figcaption>
+          </figure>
+          <figure>
+            <img class="zoomable" src="assets/img/metode-konstruksi-matras-bambu.jpg" alt="Metode konstruksi matras bambu">
+            <figcaption data-i18n="spot2.cap3">Metode konstruksi matras bambu (Type H &amp; I)</figcaption>
+          </figure>
+          <figure>
+            <img class="zoomable" src="assets/img/penyusunan-matras-bambu-di-lokasi.jpg" alt="Penyusunan matras bambu di lokasi">
+            <figcaption data-i18n="spot2.cap4">Penyusunan matras bambu di lokasi</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="spotlight reveal">
+      <div class="spotlight-body">
+        <span class="spotlight-badge static" data-i18n="spot.badge">Sorotan Proyek</span>
+        <div class="cat" data-i18n="spot3.cat">Infrastructure — WIKA–HKI–PP–KMK (KSO)</div>
+        <h3 data-i18n="spot3.title">Jalan Tol Jakarta–Cikampek II (Selatan) — Paket 2A</h3>
+        <p data-i18n="spot3.desc">Proyek jalan tol layang Jakarta–Cikampek II Selatan Paket 2A oleh KSO WIKA–HKI–PP–KMK. Sebagai site engineering intern, terlibat dalam pengawasan pelaksanaan pekerjaan struktur — dari pembesian pile cap, konstruksi pilar (pier), hingga pengukuran/survei — serta peninjauan gambar kerja dan koordinasi lapangan.</p>
+        <div class="spotlight-tools"><span>Site Supervision</span><span>QA/QC</span><span>Pile Cap</span><span>Pier Construction</span><span>Surveying</span></div>
+        <div class="site-grid">
+          <figure class="site-tile top">
+            <img class="zoomable" src="assets/img/site-engineering-di-lokasi-proyek-jakarta-cikamp.jpg" alt="Site engineering di lokasi proyek Jakarta-Cikampek">
+            <figcaption data-i18n="jkt.cap1">Site engineering di lokasi proyek</figcaption>
+          </figure>
+          <figure class="site-tile">
+            <img class="zoomable" src="assets/img/konstruksi-pilar-jembatan.jpg" alt="Konstruksi pilar jembatan">
+            <figcaption data-i18n="jkt.cap2">Konstruksi pilar (pier) jembatan</figcaption>
+          </figure>
+          <figure class="site-tile">
+            <img class="zoomable" src="assets/img/pembesian-pile-cap-dan-starter-kolom.jpg" alt="Pembesian pile cap dan starter kolom">
+            <figcaption data-i18n="jkt.cap3">Pembesian pile cap &amp; starter kolom</figcaption>
+          </figure>
+          <figure class="site-tile">
+            <img class="zoomable" src="assets/img/pengukuran-dan-survei-elevasi.jpg" alt="Pengukuran dan survei elevasi">
+            <figcaption data-i18n="jkt.cap4">Pengukuran &amp; survei elevasi</figcaption>
+          </figure>
+          <figure class="site-tile">
+            <img class="zoomable" src="assets/img/pekerjaan-pembesian-pile-cap-malam-hari.jpg" alt="Pekerjaan pembesian pile cap malam hari">
+            <figcaption data-i18n="jkt.cap5">Pembesian pile cap (malam hari)</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-grid">
+
+      <div class="project-card reveal">
+        <div class="project-thumb oil">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><line x1="12" y1="12" x2="16" y2="8"/><circle cx="12" cy="12" r="1.4" fill="#fff"/></svg>
+          <div class="project-overlay">Tools: Structural Calculation, Pipe Support</div>
+        </div>
+        <div class="project-body">
+          <div class="cat">Oil &amp; Gas — PT Pertamina Hulu Rokan</div>
+          <h3>DED Fire Water Pump Shelter &amp; Platform CGS-10</h3>
+          <p data-i18n="card1.desc">Perhitungan struktur shelter dan platform untuk revalidasi sistem firewater pump tambahan.</p>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-thumb photo">
+          <img class="zoomable" src="assets/img/detail-penulangan-kolom-k1-k2-ikn-basilika.jpg" alt="Detail penulangan kolom K1 & K2 IKN Basilika">
+          <div class="project-overlay">Tools: spColumn, SNI 2847:2019</div>
+        </div>
+        <div class="project-body">
+          <div class="cat" data-i18n="card2.cat">Building Structure — IKN, Kalimantan Timur</div>
+          <h3 data-i18n="card2.title">Basilika &amp; Gereja — Kawasan Peribadatan IKN</h3>
+          <p data-i18n="card2.desc">Detail penulangan kolom (K1 400×400 &amp; K2 450×450) untuk proyek Adhi–Wiswakharman KSO di Kawasan Peribadatan IKN, Penajam Paser Utara.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="education" style="background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="container">
+    <div class="eyebrow" data-i18n="edu.eyebrow">Latar Belakang Akademik</div>
+    <h2 class="section-title reveal" data-i18n="edu.title">Pendidikan</h2>
+    <div class="edu-card reveal">
+      <div style="flex:1;min-width:260px;">
+        <h3>Universitas Diponegoro</h3>
+        <div class="edu-sub" data-i18n="edu.sub">S1 Teknik Sipil &middot; 2021 – 2025 (lulus semester 9)</div>
+        <div class="thesis" data-i18n="edu.thesis"><b>Tugas Akhir:</b> "Comparative Study of Concrete Performance Using Various Portland Composite Cement Products With 40% Fly Ash Substitution"</div>
+      </div>
+      <div class="edu-gpa">
+        <b>3.45</b>
+        <span data-i18n="edu.gpaLabel">IPK</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="training">
+  <div class="container">
+    <div class="eyebrow" data-i18n="train.eyebrow">Pengembangan Diri</div>
+    <h2 class="section-title reveal" data-i18n="train.title">Pelatihan &amp; Sertifikasi</h2>
+    <p class="section-sub reveal" data-i18n="train.sub">Pelatihan, webinar, dan shortcourse yang saya ikuti untuk terus mengembangkan kompetensi. Klik gambar untuk memperbesar sertifikat.</p>
+    <div class="cert-grid">
+      <div class="cert-item reveal">
+        <div class="cert-thumb">
+          <img class="zoomable" src="assets/img/certificate-of-attendance-engineer-academy-stora.jpg" alt="Certificate of Attendance Engineer Academy - Storage Tank Foundation Design">
+        </div>
+        <div class="cert-caption" data-i18n="train1.cap">Shortcourse — Storage Tank Foundation Design for Oil &amp; Gas<span data-i18n="train1.sub">Engineer Academy (Webinar) &middot; 2026</span></div>
+      </div>
+      <div class="cert-item reveal">
+        <div class="cert-thumb">
+          <img class="zoomable" src="assets/img/sertifikat-pertamina-goes-to-campus-essay-compet.jpg" alt="Sertifikat Pertamina Goes to Campus Essay Competition">
+        </div>
+        <div class="cert-caption" data-i18n="train2.cap">Essay Competition — Pertamina Goes to Campus<span data-i18n="train2.sub">PT Pertamina (Persero) &middot; 2024</span></div>
+      </div>
+      <div class="cert-item reveal">
+        <div class="cert-thumb">
+          <img class="zoomable" src="assets/img/surat-keterangan-training-legislatif-dasar.jpg" alt="Surat Keterangan Training Legislatif Dasar">
+        </div>
+        <div class="cert-caption" data-i18n="train3.cap">Training Legislatif Dasar<span data-i18n="train3.sub">Senat Mahasiswa F. Psikologi, Undip &middot; 2023</span></div>
+      </div>
+    </div>
+
+    <div class="cred-head reveal" data-i18n="cred.title">Sertifikat Kompetensi &amp; Keahlian</div>
+    <div class="cred-grid">
+      <div class="cred-card reveal">
+        <div class="cred-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4L3.7 7.7l5.4-.8z"/></svg>
+        </div>
+        <div class="cred-body">
+          <h4 data-i18n="cred1.name">Sertifikat Kompetensi — Pelaksana Lapangan Pekerjaan Gedung (Jenjang 6)</h4>
+          <div class="issuer" data-i18n="cred1.issuer">BNSP — Badan Nasional Sertifikasi Profesi</div>
+          <div class="certno"><b data-i18n="cred.no">No.</b> 86593 3112.03 6 00016660 2026</div>
+        </div>
+      </div>
+      <div class="cred-card reveal">
+        <div class="cred-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5M16 4v5"/></svg>
+        </div>
+        <div class="cred-body">
+          <h4 data-i18n="cred2.name">Tekla Structures 2023 — Foundation Certification</h4>
+          <div class="issuer" data-i18n="cred2.issuer">Trimble Solutions</div>
+          <div class="certno"><b data-i18n="cred.no">No.</b> ID11082023005</div>
+        </div>
+      </div>
+      <div class="cred-card reveal">
+        <div class="cred-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20V10M9 20V4M14 20v-7M19 20v-11"/></svg>
+        </div>
+        <div class="cred-body">
+          <h4 data-i18n="cred3.name">Structural Analysis Training — CSI ETABS</h4>
+          <div class="issuer" data-i18n="cred3.issuer">Tehno Project</div>
+          <div class="certno"><b data-i18n="cred.no">No.</b> 162/TP/ETABS/2022</div>
+        </div>
+      </div>
+      <div class="cred-card reveal">
+        <div class="cred-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="2.6"/></svg>
+        </div>
+        <div class="cred-body">
+          <h4 data-i18n="cred4.name">English Proficiency Test — Skor 523</h4>
+          <div class="issuer" data-i18n="cred4.issuer">Service English Unit, Fakultas Ilmu Budaya, Undip</div>
+          <div class="certno"><b data-i18n="cred.no">No.</b> 40/UN7.F6/SR/VIII/2025</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--bg-soft);border-top:1px solid var(--line);">
+  <div class="container two-col">
+    <div>
+      <div class="eyebrow" data-i18n="org.eyebrow">Kepemimpinan</div>
+      <h2 class="section-title reveal" style="font-size:24px;" data-i18n="org.title">Pengalaman Organisasi</h2>
+      <div class="org-item reveal">
+        <h4>Himpunan Mahasiswa Sipil (HMS)</h4>
+        <div class="org-role">Academic Expert Staff</div>
+        <ul data-i18n="org1.body">
+          <li>Menyelenggarakan mentoring dan study club</li>
+          <li>Panitia seminar dan kuliah umum</li>
+          <li>Membentuk forum belajar keilmuan teknik sipil</li>
+        </ul>
+      </div>
+      <div class="org-item reveal">
+        <h4>Civil Engineering Club of Expeditious Technology (CIRCLE)</h4>
+        <div class="org-role">Mentor &amp; Coordinator of Bridge Division</div>
+        <ul data-i18n="org2.body">
+          <li>Forum belajar topik struktur jembatan</li>
+          <li>Pelatihan analisis struktur jembatan</li>
+          <li>Pemodelan dan simulasi jembatan</li>
+        </ul>
+      </div>
+      <div class="org-item reveal">
+        <h4>Kelompok Studi Aplikasi Komputer Sipil (KSAKS)</h4>
+        <div class="org-role">Expert Staff of Internal Division</div>
+        <ul data-i18n="org3.body">
+          <li>Mengelola kegiatan team bonding dan gathering</li>
+          <li>Memfasilitasi sesi diskusi antaranggota</li>
+          <li>Koordinasi jadwal program pelatihan</li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="achievements">
+      <div class="eyebrow" data-i18n="ach.eyebrow">Rekognisi</div>
+      <h2 class="section-title reveal" style="font-size:24px;" data-i18n="ach.title">Prestasi &amp; Penghargaan</h2>
+      <ul class="achv-list" data-i18n="ach.list">
+        <li><span>Best Young Staff of Civil Students Association — Undip</span><span class="yr">2022</span></li>
+        <li><span>Favorite Champion, IBC Balsa Bridge HMS Undip</span><span class="yr">2023</span></li>
+        <li><span>1st Runner-up, National Paper Competition CIVFEST PNJ</span><span class="yr">2023</span></li>
+        <li><span>Top 10 Finalist, 500 ESSAY HK Experttalk</span><span class="yr">2023</span></li>
+        <li><span>Pendanaan PKM GFT — Kemendikbudristek</span><span class="yr">2023</span></li>
+        <li><span>1st Runner-up, Paper Competition UNIDA Gontor</span><span class="yr">2023</span></li>
+        <li><span>1st Place, Essay Competition DISCOUNDIP Undip</span><span class="yr">2024</span></li>
+        <li><span>1st Place, National Paper Competition CBR Universitas Lampung</span><span class="yr">2024</span></li>
+        <li><span>3rd Place, Soegija Essay Competition</span><span class="yr">2025</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="certificates">
+  <div class="container">
+    <div class="eyebrow" data-i18n="cert.eyebrow">Bukti &amp; Dokumen</div>
+    <h2 class="section-title reveal" data-i18n="cert.title">Sertifikat &amp; Piagam</h2>
+    <p class="section-sub reveal" data-i18n="cert.sub">Kumpulan piagam organisasi dan sertifikat kompetisi. Slot di bawah siap diisi — kirimkan foto/scan piagamnya dan saya pasang di sini. Setiap gambar bisa diklik untuk diperbesar.</p>
+    <div class="cert-grid">
+      <div class="cert-item reveal">
+        <div class="cert-thumb">
+          <img class="zoomable" src="assets/img/piagam-juara-1-essay-competition-disco-7th.jpg" alt="Piagam Juara 1 Essay Competition DISCO 7th">
+        </div>
+        <div class="cert-caption" data-i18n="cert1.cap">Juara 1 — Essay Competition (DISCO 7th)<span data-i18n="cert1.sub">Diploma Civil &amp; Architecture Scientific Competition, Undip &middot; 2024</span></div>
+      </div>
+      <div class="cert-item reveal">
+        <div class="cert-thumb">
+          <img class="zoomable" src="assets/img/sertifikat-juara-1-national-paper-competition-cb.jpg" alt="Sertifikat Juara 1 National Paper Competition CBR">
+        </div>
+        <div class="cert-caption" data-i18n="cert2.cap">Juara 1 — National Paper Competition (CBR 9th)<span data-i18n="cert2.sub">Teknik Sipil Universitas Lampung &middot; 2024</span></div>
+      </div>
+      <div class="cert-item reveal">
+        <div class="cert-thumb">
+          <img class="zoomable" src="assets/img/sertifikat-juara-favorit-ibc-balsa-bridge.jpg" alt="Sertifikat Juara Favorit IBC Balsa Bridge">
+        </div>
+        <div class="cert-caption" data-i18n="cert3.cap">Juara Favorit — IBC Balsa Bridge<span data-i18n="cert3.sub">Himpunan Mahasiswa Sipil, Undip &middot; 2023</span></div>
+      </div>
+      <div class="cert-item reveal">
+        <div class="cert-thumb">
+          <img class="zoomable" src="assets/img/sertifikat-penerima-insentif-pkm-gft.jpg" alt="Sertifikat Penerima Insentif PKM-GFT">
+        </div>
+        <div class="cert-caption" data-i18n="cert4.cap">Penerima Insentif PKM-GFT<span data-i18n="cert4.sub">Kemendikbudristek &middot; 2023</span></div>
+      </div>
+      <div class="cert-item reveal">
+        <div class="cert-thumb">
+          <img class="zoomable" src="assets/img/piagam-penghargaan-ksaks-yuan-wira-satya-bakti-n.jpg" alt="Piagam Penghargaan KSAKS Yuan Wira Satya Bakti Negara">
+        </div>
+        <div class="cert-caption" data-i18n="cert5.cap">Piagam "Yuan Wira Satya Bakti Negara"<span data-i18n="cert5.sub">Ketua Divisi Social Control, KSAKS — FT Undip &middot; 2023</span></div>
+      </div>
+      <div class="cert-item reveal">
+        <div class="cert-thumb">
+          <img class="zoomable" src="assets/img/sertifikat-panitia-leadership-training-hms-2023.jpg" alt="Sertifikat Panitia Leadership Training HMS 2023">
+        </div>
+        <div class="cert-caption" data-i18n="cert6.cap">Panitia — Leadership Training HMS 2023<span data-i18n="cert6.sub">Himpunan Mahasiswa Sipil, Undip &middot; 2023</span></div>
+      </div>
+      <div class="cert-item reveal">
+        <div class="cert-thumb">
+          <img class="zoomable" src="assets/img/sk-asisten-praktikum-teknologi-bahan-ft-undip.jpg" alt="SK Asisten Praktikum Teknologi Bahan FT Undip">
+        </div>
+        <div class="cert-caption" data-i18n="cert7.cap">SK Asisten Praktikum Teknologi Bahan<span data-i18n="cert7.sub">Fakultas Teknik, Undip &middot; 2025/2026</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="blob contact-blob-1"></div>
+  <div class="blob contact-blob-2"></div>
+  <div class="container">
+    <div class="eyebrow" style="color:#e8c877;" data-i18n="contact.eyebrow">Mari Terhubung</div>
+    <h2 data-i18n="contact.title">Tertarik Berkolaborasi?</h2>
+    <p data-i18n="contact.desc">Terbuka untuk peluang di bidang structural engineering, site engineering, maupun proyek infrastruktur lainnya.</p>
+    <div class="contact-links">
+      <a href="mailto:bagasym48@gmail.com">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 4l8 8 8-8"/></svg>
+        bagasym48@gmail.com
+      </a>
+      <a href="tel:+6287878727071">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        +62 878-7872-7071
+      </a>
+      <a href="https://www.linkedin.com/in/bagasyogamahendra" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        linkedin.com/in/bagasyogamahendra
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span data-i18n="footer.text">&copy; 2026 Bagas Yoga Mahendra. Dibuat dengan Claude.</span>
+</footer>
+
+<div class="lightbox" id="lightbox">
+  <span class="lb-close" aria-label="close">&times;</span>
+  <img src="" alt="">
+</div>
+
+<script>
+  // Scroll reveal
+  var els = document.querySelectorAll('.reveal');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('is-visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(el, i){
+    el.style.transitionDelay = (Math.min(i%6,6)*0.06)+'s';
+    io.observe(el);
+  });
+
+  // Count-up stats
+  var statEls = document.querySelectorAll('.stat b[data-count]');
+  var counted = false;
+  function runCounters(){
+    if(counted) return;
+    counted = true;
+    statEls.forEach(function(el){
+      var target = parseFloat(el.getAttribute('data-count'));
+      var suffix = el.getAttribute('data-suffix') || '';
+      var isDecimal = target % 1 !== 0;
+      var start = 0;
+      var duration = 1200;
+      var startTime = null;
+      function step(ts){
+        if(!startTime) startTime = ts;
+        var progress = Math.min((ts - startTime) / duration, 1);
+        var eased = 1 - Math.pow(1-progress, 3);
+        var val = start + (target - start) * eased;
+        el.textContent = (isDecimal ? val.toFixed(2) : Math.round(val)) + suffix;
+        if(progress < 1) requestAnimationFrame(step);
+        else el.textContent = (isDecimal ? target.toFixed(2) : target) + suffix;
+      }
+      requestAnimationFrame(step);
+    });
+  }
+  var heroStats = document.querySelector('.hero-stats');
+  if(heroStats){
+    var statIo = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ runCounters(); statIo.disconnect(); } });
+    }, {threshold:0.4});
+    statIo.observe(heroStats);
+  }
+
+  // Nav scroll shadow + scrollspy
+  var nav = document.getElementById('siteNav');
+  var navLinks = document.querySelectorAll('[data-nav]');
+  var sections = Array.prototype.map.call(navLinks, function(a){ return document.querySelector(a.getAttribute('href')); });
+  function onScroll(){
+    if(window.scrollY > 12) nav.classList.add('scrolled'); else nav.classList.remove('scrolled');
+    var pos = window.scrollY + 120;
+    var activeIdx = 0;
+    sections.forEach(function(sec, i){ if(sec && sec.offsetTop <= pos) activeIdx = i; });
+    navLinks.forEach(function(a,i){ a.classList.toggle('active', i===activeIdx); });
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  // ---- Lightbox (klik gambar untuk perbesar) ----
+  var lb = document.getElementById('lightbox');
+  var lbImg = lb.querySelector('img');
+  function openLightbox(src, alt){
+    lbImg.src = src; lbImg.alt = alt || '';
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox(){
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  }
+  document.querySelectorAll('.zoomable').forEach(function(img){
+    img.addEventListener('click', function(){ openLightbox(img.src, img.alt); });
+  });
+  lb.addEventListener('click', function(e){ if(e.target !== lbImg) closeLightbox(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLightbox(); });
+
+  // ---- i18n ----
+  var I18N = {
+    id: {
+      "nav.about":"Tentang","nav.experience":"Pengalaman","nav.projects":"Proyek",
+      "nav.education":"Pendidikan","nav.training":"Pelatihan","nav.achievements":"Prestasi",
+      "nav.certificates":"Sertifikat",
+      "cert.eyebrow":"Bukti &amp; Dokumen","cert.title":"Sertifikat &amp; Piagam",
+      "cert.sub":"Kumpulan piagam organisasi dan sertifikat kompetisi. Slot di bawah siap diisi — kirimkan foto/scan piagamnya dan saya pasang di sini. Setiap gambar bisa diklik untuk diperbesar.",
+      "cert.slot":"Slot piagam / sertifikat","cert.cap":"Judul Piagam / Sertifikat","cert.capSub":"Penyelenggara &middot; Tahun",
+      "cert1.cap":"Juara 1 — Essay Competition (DISCO 7th)","cert1.sub":"Diploma Civil &amp; Architecture Scientific Competition, Undip &middot; 2024",
+      "cert2.cap":"Juara 1 — National Paper Competition (CBR 9th)","cert2.sub":"Teknik Sipil Universitas Lampung &middot; 2024",
+      "cert3.cap":"Juara Favorit — IBC Balsa Bridge","cert3.sub":"Himpunan Mahasiswa Sipil, Undip &middot; 2023",
+      "cert4.cap":"Penerima Insentif PKM-GFT","cert4.sub":"Kemendikbudristek &middot; 2023",
+      "cert5.cap":"Piagam \"Yuan Wira Satya Bakti Negara\"","cert5.sub":"Ketua Divisi Social Control, KSAKS — FT Undip &middot; 2023",
+      "cert6.cap":"Panitia — Leadership Training HMS 2023","cert6.sub":"Himpunan Mahasiswa Sipil, Undip &middot; 2023",
+      "cert7.cap":"SK Asisten Praktikum Teknologi Bahan","cert7.sub":"Fakultas Teknik, Undip &middot; 2025/2026",
+      "nav.cta":"Hubungi Saya",
+      "hero.desc":"Junior Civil Engineer dengan pengalaman di <span class=\"hl\">industri EPC (Engineering, Procurement, Construction)</span>, fokus pada analisis dan desain struktur — termasuk pondasi dangkal, pondasi blok, dan structural modeling menggunakan <span class=\"hl\">STAAD.Pro berbasis SNI 2847:2019</span>. Terbiasa bekerja lintas disiplin dalam proyek industri, dengan ketertarikan kuat pada pengembangan tools berbasis teknologi untuk mempercepat proses engineering.",
+      "hero.ctaOutline":"Lihat Pengalaman",
+      "hero.stat1":"Proyek Rekayasa","hero.stat2":"IPK","hero.stat4":"Penghargaan",
+      "about.eyebrow":"Tentang Saya","about.title":"Profil Singkat",
+      "about.p1":"Saya adalah lulusan Teknik Sipil <span class=\"hl\">Universitas Diponegoro</span> (2021–2025) dengan IPK 3.45, saat ini bekerja sebagai Junior Civil Engineer di <span class=\"hl\">PT Rekayasa Engineering</span>, menangani perhitungan struktur untuk proyek-proyek migas bersama PT Pertamina Hulu Rokan.",
+      "about.p2":"Pengalaman saya mencakup analisis struktur bangunan gedung menggunakan <span class=\"hl\">SAP2000 &amp; ETABS</span>, perhitungan pipe support dan pondasi peralatan industri, hingga pengawasan pelaksanaan konstruksi di lapangan pada proyek jalan tol dan tanggul laut berskala nasional.",
+      "about.p3":"Di luar pekerjaan teknis, saya aktif di organisasi kemahasiswaan bidang keilmuan sipil dan telah meraih <span class=\"hl\">berbagai prestasi kompetisi karya tulis</span> serta lomba jembatan tingkat nasional.",
+      "lang.title":"Bahasa","lang.tag1":"Bahasa Indonesia — Native",
+      "hi1.title":"Analisis Struktur Migas","hi1.desc":"Perhitungan pipe support &amp; pondasi peralatan untuk fasilitas PT Pertamina Hulu Rokan.",
+      "hi2.title":"Pemodelan Struktur Gedung","hi2.desc":"Analisis &amp; penulangan struktur gedung pemerintahan dengan SAP2000 dan ETABS.",
+      "hi3.title":"Pengawasan Infrastruktur","hi3.desc":"Site engineering pada proyek jalan tol dan tanggul laut berskala nasional.",
+      "hi4.title":"Riset Material Beton","hi4.desc":"Tugas akhir tentang performa beton dengan substitusi fly ash 40% pada semen PCC.",
+      "exp.eyebrow":"Rekam Jejak","exp.title":"Pengalaman Profesional",
+      "exp.sub":"Perjalanan karier dari internship di proyek infrastruktur nasional hingga peran engineering saat ini.",
+      "exp1.date":"Nov 2025 — Sekarang",
+      "exp1.body":"<div class=\"tl-proj\">DED Revalidasi Additional Fire Water Pump CGS-01 &amp; CGS-10 — PT Pertamina Hulu Rokan</div><ul><li>Perhitungan struktur shelter &amp; platform firewater pump CGS-10</li></ul><div class=\"tl-proj\">DED Replacement of Partial Pipe 6&quot; Gulamo Oil Production — PT Pertamina Hulu Rokan</div><ul><li>Perhitungan pipe support tipe 1</li><li>Perhitungan pipe support tipe 2</li></ul><div class=\"tl-proj\">DED Replacement of GFW Pipes CGS-1 to CGS-5</div><ul><li>Perhitungan pipe support GFW area CGS 1–3</li><li>Perhitungan pipe support GFW area CGS 3–4</li></ul><div class=\"tl-proj\">FEED Improvement Sump Pump Area 5 (5SW, 5NW) — PT Pertamina Hulu Rokan</div><ul><li>Perhitungan pondasi sump pump (8056-P-0902A/B) area 5SW &amp; 5NW</li><li>Survei lapangan area sump pump Rokan</li></ul>",
+      "exp.placeholder":"Tambahkan foto/dokumentasi proyek di sini",
+      "exp2.date":"Okt 2024 — Okt 2025",
+      "exp2.body":"<div class=\"tl-proj\">Merauke Provincial Governor's Office Building Construction Project</div><ul><li>Analisis struktur bangunan menggunakan SAP2000 &amp; ETABS</li><li>Perhitungan dan penggambaran penulangan struktur</li></ul><div class=\"tl-proj\">Governor's Office, DPRD &amp; DPRK Papua Pegunungan Province</div><ul><li>Analisis struktur bangunan menggunakan SAP2000 &amp; ETABS</li><li>Perhitungan dan penggambaran penulangan struktur</li></ul>",
+      "exp3.body":"<div class=\"tl-proj\">Jakarta–Cikampek II South Toll Road Package 2A</div><ul><li>Mengawasi pelaksanaan pekerjaan agar sesuai desain &amp; standar mutu</li><li>Meninjau gambar kerja dan spesifikasi proyek</li><li>Koordinasi dengan konsultan pengawas, kontraktor, dan tim desain</li></ul>",
+      "exp4.body":"<div class=\"tl-proj\">Toll Road and Sea Dike Semarang – Demak 1B</div><ul><li>Mengawasi pelaksanaan pekerjaan agar sesuai desain &amp; standar mutu</li><li>Meninjau gambar kerja dan spesifikasi proyek</li><li>Koordinasi dengan konsultan pengawas, kontraktor, dan tim desain</li></ul>",
+      "exp5.body":"<div class=\"tl-proj\">Praktikum Mata Kuliah Teknologi Beton</div><ul><li>Mendampingi dan mengawasi praktikum Teknologi Beton</li><li>Membantu pengelolaan data dan laporan praktikum</li></ul>",
+      "proj.eyebrow":"Portofolio","proj.title":"Proyek Unggulan",
+      "proj.sub":"Sorotan proyek dengan dokumentasi nyata — dari desain arsitektur, denah, hingga pemodelan struktur. Klik gambar untuk memperbesar.",
+      "spot.badge":"Sorotan Proyek",
+      "spot.cat":"Building Structure — Provinsi Papua Selatan",
+      "spot.title":"Kantor Gubernur, Gedung DPRD &amp; MRP Provinsi Papua Selatan",
+      "spot.desc":"Basic design gedung kantor gubernur beserta gedung DPRD dan MRP. Lingkup pekerjaan mencakup analisis dan pemodelan struktur menggunakan STAAD.Pro/ETABS, penerapan rigid diaphragm &amp; joint constraint, hingga koordinasi dengan gambar arsitektur dan denah tata ruang.",
+      "spot.cap1":"Denah Lantai 1 (skala 1:250)",
+      "spot.cap2":"Pemodelan struktur — kolom, balok &amp; pelat",
+      "spot.cap3":"Rigid diaphragm &amp; joint constraint",
+      "spot2.cat":"Infrastructure — CRBC–WIKA–PP JO",
+      "spot2.title":"Jalan Tol &amp; Tanggul Laut Semarang–Demak Paket 1B",
+      "spot2.desc":"Proyek jalan tol dan tanggul laut Semarang–Demak Paket 1B oleh China Road and Bridge Corporation (CRBC–WIKA–PP JO). Sebagai site engineering intern, terlibat dalam pengawasan pelaksanaan, peninjauan gambar kerja, dan koordinasi lapangan — mencakup pekerjaan matras bambu (bamboo mattress) sebagai perkuatan tanah lunak serta penanganan steel pipe pile untuk fondasi.",
+      "spot2.cap1":"Papan informasi proyek CRBC Semarang–Demak 1B",
+      "spot2.cap2":"Penanganan steel pipe pile untuk fondasi",
+      "spot2.cap3":"Metode konstruksi matras bambu (Type H &amp; I)",
+      "spot2.cap4":"Penyusunan matras bambu di lokasi",
+      "spot3.cat":"Infrastructure — WIKA–HKI–PP–KMK (KSO)",
+      "spot3.title":"Jalan Tol Jakarta–Cikampek II (Selatan) — Paket 2A",
+      "spot3.desc":"Proyek jalan tol layang Jakarta–Cikampek II Selatan Paket 2A oleh KSO WIKA–HKI–PP–KMK. Sebagai site engineering intern, terlibat dalam pengawasan pelaksanaan pekerjaan struktur — dari pembesian pile cap, konstruksi pilar (pier), hingga pengukuran/survei — serta peninjauan gambar kerja dan koordinasi lapangan.",
+      "jkt.cap1":"Site engineering di lokasi proyek","jkt.cap2":"Konstruksi pilar (pier) jembatan","jkt.cap3":"Pembesian pile cap &amp; starter kolom","jkt.cap4":"Pengukuran &amp; survei elevasi","jkt.cap5":"Pembesian pile cap (malam hari)",
+      "card1.desc":"Perhitungan struktur shelter dan platform untuk revalidasi sistem firewater pump tambahan.",
+      "card2.cat":"Building Structure — IKN, Kalimantan Timur",
+      "card2.title":"Basilika &amp; Gereja — Kawasan Peribadatan IKN",
+      "card2.desc":"Detail penulangan kolom (K1 400×400 &amp; K2 450×450) untuk proyek Adhi–Wiswakharman KSO di Kawasan Peribadatan IKN, Penajam Paser Utara.",
+      "card3.desc":"Pengawasan pelaksanaan konstruksi, peninjauan gambar kerja, dan koordinasi lapangan.",
+      "card4.desc":"Site engineering bersama China Road and Bridge Corporation pada proyek infrastruktur pesisir.",
+      "edu.eyebrow":"Latar Belakang Akademik","edu.title":"Pendidikan",
+      "edu.sub":"S1 Teknik Sipil &middot; 2021 – 2025 (lulus semester 9)",
+      "edu.thesis":"<b>Tugas Akhir:</b> \"Comparative Study of Concrete Performance Using Various Portland Composite Cement Products With 40% Fly Ash Substitution\"",
+      "edu.gpaLabel":"IPK",
+      "train.eyebrow":"Pengembangan Diri","train.title":"Pelatihan &amp; Sertifikasi",
+      "train.sub":"Pelatihan, webinar, dan shortcourse yang saya ikuti untuk terus mengembangkan kompetensi. Klik gambar untuk memperbesar sertifikat.",
+      "train1.cap":"Shortcourse — Storage Tank Foundation Design for Oil &amp; Gas","train1.sub":"Engineer Academy (Webinar) &middot; 2026",
+      "train2.cap":"Essay Competition — Pertamina Goes to Campus","train2.sub":"PT Pertamina (Persero) &middot; 2024",
+      "train3.cap":"Training Legislatif Dasar","train3.sub":"Senat Mahasiswa F. Psikologi, Undip &middot; 2023",
+      "cred.title":"Sertifikat Kompetensi &amp; Keahlian","cred.no":"No.",
+      "cred1.name":"Sertifikat Kompetensi — Pelaksana Lapangan Pekerjaan Gedung (Jenjang 6)","cred1.issuer":"BNSP — Badan Nasional Sertifikasi Profesi",
+      "cred2.name":"Tekla Structures 2023 — Foundation Certification","cred2.issuer":"Trimble Solutions",
+      "cred3.name":"Structural Analysis Training — CSI ETABS","cred3.issuer":"Tehno Project",
+      "cred4.name":"English Proficiency Test — Skor 523","cred4.issuer":"Service English Unit, Fakultas Ilmu Budaya, Undip",
+      "train.cardTitle":"Nama Pelatihan / Sertifikasi","train.cardSub":"Penyelenggara &middot; Tahun",
+      "org.eyebrow":"Kepemimpinan","org.title":"Pengalaman Organisasi",
+      "org1.body":"<li>Menyelenggarakan mentoring dan study club</li><li>Panitia seminar dan kuliah umum</li><li>Membentuk forum belajar keilmuan teknik sipil</li>",
+      "org2.body":"<li>Forum belajar topik struktur jembatan</li><li>Pelatihan analisis struktur jembatan</li><li>Pemodelan dan simulasi jembatan</li>",
+      "org3.body":"<li>Mengelola kegiatan team bonding dan gathering</li><li>Memfasilitasi sesi diskusi antaranggota</li><li>Koordinasi jadwal program pelatihan</li>",
+      "ach.eyebrow":"Rekognisi","ach.title":"Prestasi &amp; Penghargaan",
+      "ach.list":"<li><span>Best Young Staff of Civil Students Association — Undip</span><span class=\"yr\">2022</span></li><li><span>Favorite Champion, IBC Balsa Bridge HMS Undip</span><span class=\"yr\">2023</span></li><li><span>1st Runner-up, National Paper Competition CIVFEST PNJ</span><span class=\"yr\">2023</span></li><li><span>Top 10 Finalist, 500 ESSAY HK Experttalk</span><span class=\"yr\">2023</span></li><li><span>Pendanaan PKM GFT — Kemendikbudristek</span><span class=\"yr\">2023</span></li><li><span>1st Runner-up, Paper Competition UNIDA Gontor</span><span class=\"yr\">2023</span></li><li><span>1st Place, Essay Competition DISCOUNDIP Undip</span><span class=\"yr\">2024</span></li><li><span>1st Place, National Paper Competition CBR Universitas Lampung</span><span class=\"yr\">2024</span></li><li><span>3rd Place, Soegija Essay Competition</span><span class=\"yr\">2025</span></li>",
+      "contact.eyebrow":"Mari Terhubung","contact.title":"Tertarik Berkolaborasi?",
+      "contact.desc":"Terbuka untuk peluang di bidang structural engineering, site engineering, maupun proyek infrastruktur lainnya.",
+      "footer.text":"&copy; 2026 Bagas Yoga Mahendra. Dibuat dengan Claude."
+    },
+    en: {
+      "nav.about":"About","nav.experience":"Experience","nav.projects":"Projects",
+      "nav.education":"Education","nav.training":"Training","nav.achievements":"Achievements",
+      "nav.certificates":"Certificates",
+      "cert.eyebrow":"Proof &amp; Documents","cert.title":"Certificates &amp; Awards",
+      "cert.sub":"A collection of organizational certificates and competition awards. The slots below are ready to fill — send me photos/scans of the certificates and I'll place them here. Each image can be clicked to enlarge.",
+      "cert.slot":"Certificate / award slot","cert.cap":"Certificate / Award Title","cert.capSub":"Organizer &middot; Year",
+      "cert1.cap":"1st Place — Essay Competition (DISCO 7th)","cert1.sub":"Diploma Civil &amp; Architecture Scientific Competition, Undip &middot; 2024",
+      "cert2.cap":"1st Place — National Paper Competition (CBR 9th)","cert2.sub":"Civil Engineering, University of Lampung &middot; 2024",
+      "cert3.cap":"Favorite Winner — IBC Balsa Bridge","cert3.sub":"Civil Engineering Student Association, Undip &middot; 2023",
+      "cert4.cap":"PKM-GFT Funding Recipient","cert4.sub":"Ministry of Education (Kemendikbudristek) &middot; 2023",
+      "cert5.cap":"Award \"Yuan Wira Satya Bakti Negara\"","cert5.sub":"Head of Social Control Division, KSAKS — FT Undip &middot; 2023",
+      "cert6.cap":"Committee — Leadership Training HMS 2023","cert6.sub":"Civil Engineering Student Association, Undip &middot; 2023",
+      "cert7.cap":"Lab Assistant Appointment (Materials)","cert7.sub":"Faculty of Engineering, Undip &middot; 2025/2026",
+      "nav.cta":"Contact Me",
+      "hero.desc":"Junior Civil Engineer with experience in the <span class=\"hl\">EPC (Engineering, Procurement, Construction) industry</span>, focused on structural analysis and design — including shallow foundations, block foundations, and structural modeling using <span class=\"hl\">STAAD.Pro based on SNI 2847:2019</span>. Accustomed to working across disciplines on industrial projects, with a strong interest in developing technology-based tools to accelerate the engineering process.",
+      "hero.ctaOutline":"View Experience",
+      "hero.stat1":"Engineering Projects","hero.stat2":"GPA","hero.stat4":"Awards",
+      "about.eyebrow":"About Me","about.title":"Brief Profile",
+      "about.p1":"I am a Civil Engineering graduate from <span class=\"hl\">Diponegoro University</span> (2021–2025) with a GPA of 3.45, currently working as a Junior Civil Engineer at <span class=\"hl\">PT Rekayasa Engineering</span>, handling structural calculations for oil &amp; gas projects with PT Pertamina Hulu Rokan.",
+      "about.p2":"My experience covers building structure analysis using <span class=\"hl\">SAP2000 &amp; ETABS</span>, pipe support and equipment foundation calculations, as well as construction site supervision on national-scale toll road and sea dike projects.",
+      "about.p3":"Beyond technical work, I am active in civil engineering student organizations and have earned <span class=\"hl\">several academic writing competition awards</span> as well as national bridge design competitions.",
+      "lang.title":"Languages","lang.tag1":"Indonesian — Native",
+      "hi1.title":"Oil &amp; Gas Structural Analysis","hi1.desc":"Pipe support &amp; equipment foundation calculations for PT Pertamina Hulu Rokan facilities.",
+      "hi2.title":"Building Structure Modeling","hi2.desc":"Structural analysis &amp; reinforcement detailing for government buildings using SAP2000 and ETABS.",
+      "hi3.title":"Infrastructure Supervision","hi3.desc":"Site engineering on national-scale toll road and sea dike projects.",
+      "hi4.title":"Concrete Material Research","hi4.desc":"Undergraduate thesis on concrete performance with 40% fly ash substitution in PCC cement.",
+      "exp.eyebrow":"Track Record","exp.title":"Professional Experience",
+      "exp.sub":"A career journey from internships on national infrastructure projects to my current engineering role.",
+      "exp1.date":"Nov 2025 — Present",
+      "exp1.body":"<div class=\"tl-proj\">DED Revalidation of Additional Fire Water Pump at CGS-01 &amp; CGS-10 — PT Pertamina Hulu Rokan</div><ul><li>Structural calculation for firewater pump shelter &amp; platform, CGS-10</li></ul><div class=\"tl-proj\">DED Replacement of Partial 6&quot; Pipe, Gulamo Oil Production — PT Pertamina Hulu Rokan</div><ul><li>Pipe support calculation, type 1</li><li>Pipe support calculation, type 2</li></ul><div class=\"tl-proj\">DED Replacement of GFW Pipes from CGS-1 to CGS-5</div><ul><li>Pipe support calculation for GFW (ground feed water) line, CGS 1 to CGS 3 area</li><li>Pipe support calculation for GFW line, CGS 3 to CGS 4 area</li></ul><div class=\"tl-proj\">FEED Improvement of Sump Pump Area 5 (5SW, 5NW) — PT Pertamina Hulu Rokan</div><ul><li>Foundation calculation for fluid sump pump (8056-P-0902A/B), 5SW &amp; 5NW area</li><li>Conducted a site survey of the sump pump Area 5 (5SW, 5NW) in the Rokan operational area</li></ul>",
+      "exp.placeholder":"Add project photos/documentation here",
+      "exp2.date":"Oct 2024 — Oct 2025",
+      "exp2.body":"<div class=\"tl-proj\">Merauke Provincial Governor's Office Building Construction Project</div><ul><li>Building structure analysis using SAP2000 &amp; ETABS applications</li><li>Calculating and drawing structural reinforcement</li></ul><div class=\"tl-proj\">Governor's Office, Regional Representative Council, and Regional People's Council of Papua Pegunungan Province</div><ul><li>Building structure analysis using SAP2000 &amp; ETABS applications</li><li>Calculating and drawing structural reinforcement</li></ul>",
+      "exp3.body":"<div class=\"tl-proj\">Jakarta–Cikampek II South Toll Road Package 2A</div><ul><li>Supervised the implementation of work to ensure compliance with design and quality standards</li><li>Reviewed working drawings and project specifications</li><li>Coordinated with the supervising consultant, contractor, and design team</li></ul>",
+      "exp4.body":"<div class=\"tl-proj\">Toll Road and Sea Dike Semarang – Demak 1B</div><ul><li>Supervised the implementation of work to ensure compliance with design and quality standards</li><li>Reviewed working drawings and project specifications</li><li>Coordinated with the supervising consultant, contractor, and design team</li></ul>",
+      "exp5.body":"<div class=\"tl-proj\">Concrete Technology Course Laboratory Practicum</div><ul><li>Assisted and supervised the Concrete Technology laboratory practicum</li><li>Assisted in managing practicum data and reports</li></ul>",
+      "proj.eyebrow":"Portfolio","proj.title":"Featured Projects",
+      "proj.sub":"Project highlights with real documentation — from architectural design and floor plans to structural modeling. Click any image to enlarge.",
+      "spot.badge":"Featured Project",
+      "spot.cat":"Building Structure — South Papua Province",
+      "spot.title":"Governor's Office, DPRD &amp; MRP Building, South Papua Province",
+      "spot.desc":"Basic design of the governor's office building along with the DPRD and MRP buildings. The scope covered structural analysis and modeling using STAAD.Pro/ETABS, application of rigid diaphragm &amp; joint constraints, and coordination with architectural drawings and floor plans.",
+      "spot.cap1":"Ground Floor Plan (scale 1:250)",
+      "spot.cap2":"Structural modeling — columns, beams &amp; slabs",
+      "spot.cap3":"Rigid diaphragm &amp; joint constraint",
+      "spot2.cat":"Infrastructure — CRBC–WIKA–PP JO",
+      "spot2.title":"Semarang–Demak Toll Road &amp; Sea Dike, Package 1B",
+      "spot2.desc":"Semarang–Demak toll road and sea dike project, Package 1B, by China Road and Bridge Corporation (CRBC–WIKA–PP JO). As a site engineering intern, I was involved in construction supervision, working-drawing review, and field coordination — covering bamboo mattress works for soft-soil reinforcement and steel pipe pile handling for the foundation.",
+      "spot2.cap1":"CRBC Semarang–Demak 1B project bulletin board",
+      "spot2.cap2":"Steel pipe pile handling for the foundation",
+      "spot2.cap3":"Bamboo mattress construction method (Type H &amp; I)",
+      "spot2.cap4":"Bamboo mattress installation on site",
+      "spot3.cat":"Infrastructure — WIKA–HKI–PP–KMK (KSO)",
+      "spot3.title":"Jakarta–Cikampek II (South) Toll Road — Package 2A",
+      "spot3.desc":"Jakarta–Cikampek II South elevated toll road project, Package 2A, by the WIKA–HKI–PP–KMK joint operation. As a site engineering intern, I was involved in supervising structural works — from pile cap reinforcement and bridge pier construction to surveying — as well as working-drawing review and field coordination.",
+      "jkt.cap1":"Site engineering on the project site","jkt.cap2":"Bridge pier construction","jkt.cap3":"Pile cap reinforcement &amp; column starters","jkt.cap4":"Elevation survey &amp; measurement","jkt.cap5":"Pile cap reinforcement (night shift)",
+      "card1.desc":"Structural calculation for the shelter and platform for the revalidation of an additional firewater pump system.",
+      "card2.cat":"Building Structure — IKN, East Kalimantan",
+      "card2.title":"Basilica &amp; Church — IKN Religious Complex",
+      "card2.desc":"Column reinforcement details (K1 400×400 &amp; K2 450×450) for the Adhi–Wiswakharman KSO project at the IKN Religious Complex, Penajam Paser Utara.",
+      "card3.desc":"Construction implementation supervision, working drawing review, and field coordination.",
+      "card4.desc":"Site engineering with China Road and Bridge Corporation on a coastal infrastructure project.",
+      "edu.eyebrow":"Academic Background","edu.title":"Education",
+      "edu.sub":"Bachelor of Civil Engineering &middot; 2021 – 2025 (completed in 9th semester)",
+      "edu.thesis":"<b>Undergraduate Thesis:</b> \"Comparative Study of Concrete Performance Using Various Portland Composite Cement Products With 40% Fly Ash Substitution\"",
+      "edu.gpaLabel":"GPA",
+      "train.eyebrow":"Professional Development","train.title":"Training &amp; Certifications",
+      "train.sub":"Trainings, webinars, and short courses I've attended to keep developing my competencies. Click an image to enlarge the certificate.",
+      "train1.cap":"Short Course — Storage Tank Foundation Design for Oil &amp; Gas","train1.sub":"Engineer Academy (Webinar) &middot; 2026",
+      "train2.cap":"Essay Competition — Pertamina Goes to Campus","train2.sub":"PT Pertamina (Persero) &middot; 2024",
+      "train3.cap":"Basic Legislative Training","train3.sub":"Student Senate, Faculty of Psychology, Undip &middot; 2023",
+      "cred.title":"Competency &amp; Professional Certifications","cred.no":"No.",
+      "cred1.name":"Competency Certificate — Building Works Site Supervisor (Level 6)","cred1.issuer":"BNSP — National Professional Certification Agency",
+      "cred2.name":"Tekla Structures 2023 — Foundation Certification","cred2.issuer":"Trimble Solutions",
+      "cred3.name":"Structural Analysis Training — CSI ETABS","cred3.issuer":"Tehno Project",
+      "cred4.name":"English Proficiency Test — Score 523","cred4.issuer":"Service English Unit, Faculty of Humanities, Undip",
+      "train.cardTitle":"Training / Certification Name","train.cardSub":"Organizer &middot; Year",
+      "org.eyebrow":"Leadership","org.title":"Organizational Experience",
+      "org1.body":"<li>Organized mentoring sessions and study clubs</li><li>Served as a committee member for seminars and public lectures</li><li>Created a learning forum focused on civil engineering knowledge</li>",
+      "org2.body":"<li>Organized a learning forum on bridge structure topics</li><li>Conducted training on bridge structure analysis</li><li>Performed bridge modeling and simulation</li>",
+      "org3.body":"<li>Organized team bonding and organizational gathering activities</li><li>Facilitated sharing and discussion sessions among members</li><li>Coordinated and scheduled training programs</li>",
+      "ach.eyebrow":"Recognition","ach.title":"Achievements &amp; Awards",
+      "ach.list":"<li><span>Best Young Staff of Civil Students Association — Undip</span><span class=\"yr\">2022</span></li><li><span>Favorite Champion, IBC Balsa Bridge HMS Undip</span><span class=\"yr\">2023</span></li><li><span>1st Runner-up, National Paper Competition CIVFEST PNJ</span><span class=\"yr\">2023</span></li><li><span>Top 10 Finalist, 500 ESSAY HK Experttalk</span><span class=\"yr\">2023</span></li><li><span>PKM GFT Research Funding — Kemendikbudristek (Ministry of Education)</span><span class=\"yr\">2023</span></li><li><span>1st Runner-up, Paper Competition UNIDA Gontor</span><span class=\"yr\">2023</span></li><li><span>1st Place, Essay Competition DISCOUNDIP Undip</span><span class=\"yr\">2024</span></li><li><span>1st Place, National Paper Competition CBR University of Lampung</span><span class=\"yr\">2024</span></li><li><span>3rd Place, Soegija Essay Competition</span><span class=\"yr\">2025</span></li>",
+      "contact.eyebrow":"Let's Connect","contact.title":"Interested in Collaborating?",
+      "contact.desc":"Open to opportunities in structural engineering, site engineering, and other infrastructure projects.",
+      "footer.text":"&copy; 2026 Bagas Yoga Mahendra. Built with Claude."
+    }
+  };
+
+  var currentLang = 'id';
+  function applyLang(lang){
+    currentLang = lang;
+    var dict = I18N[lang];
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var key = el.getAttribute('data-i18n');
+      if(dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+    document.documentElement.lang = lang;
+    document.title = lang === 'en'
+      ? 'Bagas Yoga Mahendra — Civil Engineer Portfolio'
+      : 'Bagas Yoga Mahendra — Portofolio Civil Engineer';
+    var sw = document.getElementById('langSwitch');
+    sw.classList.toggle('en', lang === 'en');
+    sw.querySelectorAll('button').forEach(function(b){
+      b.classList.toggle('active', b.getAttribute('data-lang-btn') === lang);
+    });
+  }
+  document.querySelectorAll('[data-lang-btn]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      applyLang(btn.getAttribute('data-lang-btn'));
+    });
+  });
+</script>
+
+</body>
+</html>
