@@ -175,6 +175,29 @@
   }
   .hero-text .role{font-size:18px;color:var(--accent);font-weight:600;margin-bottom:18px;}
   .hero-text p.desc{color:var(--muted);font-size:15.5px;max-width:520px;margin-bottom:28px;}
+  .hero-badges{display:flex;flex-wrap:wrap;gap:8px;margin:2px 0 20px;}
+  .hbadge{
+    display:inline-flex;align-items:center;gap:7px;
+    font-size:12px;font-weight:600;color:var(--navy);
+    background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px 12px 5px 11px;
+    transition:transform .2s var(--ease), border-color .2s ease, box-shadow .2s ease;
+  }
+  .hbadge::before{content:"";width:6px;height:6px;border-radius:50%;background:linear-gradient(180deg,var(--accent),var(--accent-2));flex-shrink:0;}
+  .hbadge:hover{transform:translateY(-2px);border-color:var(--accent);box-shadow:0 6px 14px rgba(201,162,75,.18);}
+  @keyframes heroIn{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes heroPhotoIn{from{opacity:0;transform:scale(.9);}to{opacity:1;transform:scale(1);}}
+  .hero-text > *{opacity:0;animation:heroIn .7s var(--ease) both;}
+  .hero-text > .eyebrow{animation-delay:.05s;}
+  .hero-text > h1{animation-delay:.16s;}
+  .hero-text > .role{animation-delay:.28s;}
+  .hero-text > .hero-badges{animation-delay:.40s;}
+  .hero-text > p.desc{animation-delay:.52s;}
+  .hero-text > .hero-cta{animation-delay:.64s;}
+  .hero-text > .hero-stats{animation-delay:.76s;}
+  .hero-photo{opacity:0;animation:heroPhotoIn .85s var(--ease) .25s both;}
+  @media (prefers-reduced-motion: reduce){
+    .hero-text > *, .hero-photo{animation:none;opacity:1;}
+  }
   .hero-cta{display:flex;gap:12px;flex-wrap:wrap;}
   .btn{
     display:inline-flex;align-items:center;gap:8px;
@@ -657,6 +680,15 @@
       <div class="eyebrow">Civil Engineer</div>
       <h1>Bagas Yoga Mahendra</h1>
       <div class="role">Junior Civil Engineer — Structural &amp; Site Engineering</div>
+      <div class="hero-badges">
+        <span class="hbadge">EPC Industry</span>
+        <span class="hbadge">Oil &amp; Gas</span>
+        <span class="hbadge">STAAD.Pro</span>
+        <span class="hbadge">SAP2000 &amp; ETABS</span>
+        <span class="hbadge">Structural Design</span>
+        <span class="hbadge">Foundation Engineering</span>
+        <span class="hbadge">SNI 2847:2019</span>
+      </div>
       <p class="desc" data-i18n="hero.desc">Junior Civil Engineer dengan pengalaman di <span class="hl">industri EPC (Engineering, Procurement, Construction)</span>, fokus pada analisis dan desain struktur — termasuk pondasi dangkal, pondasi blok, dan structural modeling menggunakan <span class="hl">STAAD.Pro berbasis SNI 2847:2019</span>. Terbiasa bekerja lintas disiplin dalam proyek industri, dengan ketertarikan kuat pada pengembangan tools berbasis teknologi untuk mempercepat proses engineering.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="#contact" data-i18n="nav.cta">Hubungi Saya</a>
@@ -664,9 +696,9 @@
       </div>
       <div class="hero-stats">
         <div class="stat"><b data-count="4" data-suffix="+">0</b><span data-i18n="hero.stat1">Proyek Rekayasa</span></div>
-        <div class="stat"><b data-count="3.45" data-decimal="1">0</b><span data-i18n="hero.stat2">IPK</span></div>
         <div class="stat"><b data-count="12">0</b><span>Software Engineering</span></div>
         <div class="stat"><b data-count="8" data-suffix="+">0</b><span data-i18n="hero.stat4">Penghargaan</span></div>
+        <div class="stat"><b data-count="3.45" data-decimal="1">0</b><span data-i18n="hero.stat2">IPK</span></div>
       </div>
     </div>
     <div class="hero-photo">
