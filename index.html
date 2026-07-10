@@ -132,6 +132,14 @@
     position:relative;overflow:hidden;white-space:nowrap;
   }
   .nav-cta:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(22,34,63,.3);}
+  .nav-print{
+    display:inline-flex;align-items:center;gap:7px;cursor:pointer;font-family:inherit;
+    font-size:13px;font-weight:600;color:var(--navy);
+    background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px 13px;
+    transition:border-color .2s ease, transform .2s var(--ease), box-shadow .2s ease;
+  }
+  .nav-print:hover{border-color:var(--accent);transform:translateY(-1px);box-shadow:0 8px 18px rgba(201,162,75,.18);}
+  .nav-print svg{width:15px;height:15px;flex-shrink:0;}
 
   /* HERO */
   .hero{
@@ -580,11 +588,13 @@
   }
 
   @media print{
-    header.nav, .hero-cta, .contact-links, .blob, .epc-silhouette{display:none;}
+    header.nav, .hero-cta, .contact-links, .blob, .epc-silhouette, .nav-print{display:none;}
     section{padding:28px 0;}
     body{font-size:12px;}
     .reveal{opacity:1 !important;transform:none !important;}
+    .hero-text > *, .hero-photo{animation:none !important;opacity:1 !important;}
     .hero-text h1, .edu-gpa b{-webkit-text-fill-color:initial;background:none;color:var(--navy) !important;}
+    .tl-item, .org-item, .model-item, .cert-item, .spotlight, .webapp-feature, .tl-gallery figure, .edu-card{break-inside:avoid;}
   }
 </style>
 </head>
@@ -609,6 +619,10 @@
         <button type="button" data-lang-btn="id" class="active">ID</button>
         <button type="button" data-lang-btn="en">EN</button>
       </div>
+      <button type="button" class="nav-print" onclick="window.print()" aria-label="Cetak / Simpan PDF" title="Cetak / Simpan sebagai PDF">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        <span>PDF</span>
+      </button>
       <a class="nav-cta" href="#contact" data-i18n="nav.cta">Hubungi Saya</a>
     </div>
   </div>
