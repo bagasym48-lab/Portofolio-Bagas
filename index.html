@@ -419,6 +419,15 @@
   .model-thumb img{width:100%;height:100%;object-fit:cover;display:block;cursor:zoom-in;transition:transform .4s var(--ease);}
   .model-item:hover .model-thumb img{transform:scale(1.05);}
   .model-caption{padding:12px 14px;font-size:12.5px;color:var(--navy);font-weight:600;line-height:1.4;}
+  /* Featured web app */
+  .webapp-feature{display:grid;grid-template-columns:1.28fr 1fr;gap:30px;align-items:center;margin-bottom:30px;padding:22px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(135deg,#ffffff 40%, var(--bg-soft));}
+  .webapp-feature .wf-media{border-radius:12px;overflow:hidden;border:1px solid var(--line);box-shadow:0 16px 34px rgba(22,34,63,.16);line-height:0;}
+  .webapp-feature .wf-media img{width:100%;display:block;cursor:zoom-in;transition:transform .45s var(--ease);}
+  .webapp-feature .wf-media:hover img{transform:scale(1.03);}
+  .webapp-feature .wf-body .cat{font-size:11.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);font-weight:700;margin-bottom:7px;}
+  .webapp-feature .wf-body h3{font-size:22px;color:var(--navy);line-height:1.25;margin-bottom:11px;}
+  .webapp-feature .wf-body p{color:var(--muted);font-size:14.5px;margin-bottom:16px;}
+  @media(max-width:820px){.webapp-feature{grid-template-columns:1fr;gap:20px;}}
 
   .project-overlay{
     position:absolute;inset:auto 0 0 0;padding:10px 14px;
@@ -1098,7 +1107,18 @@
   <div class="container">
     <div class="eyebrow" data-i18n="model.eyebrow">Pemodelan 3D</div>
     <h2 class="section-title reveal" data-i18n="model.title">3D Modeling &amp; Visualisasi</h2>
-    <p class="section-sub reveal" data-i18n="model.sub">Kumpulan pemodelan dan render 3D — dari visualisasi arsitektur, pemodelan struktur jembatan, hingga konsep infrastruktur. Sebagai bukti kemampuan modeling &amp; rendering. Klik gambar untuk memperbesar.</p>
+    <p class="section-sub reveal" data-i18n="model.sub">Kumpulan pemodelan dan render 3D — dari visualisasi arsitektur, pemodelan struktur jembatan, hingga konsep infrastruktur — serta aplikasi web engineering yang saya kembangkan. Klik gambar untuk memperbesar.</p>
+
+    <div class="webapp-feature reveal">
+      <div class="wf-media"><img class="zoomable" src="assets/img/web-re-project-dashboard.jpg" alt="Dashboard aplikasi web RE-Project Engineering Suite — kalkulasi &amp; monitoring project"></div>
+      <div class="wf-body">
+        <div class="cat" data-i18n="web.cat">Aplikasi Web — Engineering Suite</div>
+        <h3 data-i18n="web.title">RE-Project — Web Kalkulasi &amp; Monitoring Project</h3>
+        <p data-i18n="web.desc">Aplikasi web engineering yang saya kembangkan sendiri: dashboard multi-disiplin dengan kalkulator teknik (pondasi dangkal, pondasi equipment, pipe support) lengkap dengan laporan otomatis &amp; Material Take-Off (MTO), serta monitoring progress project dan Kurva-S. Dibangun dengan React, FastAPI, dan Supabase.</p>
+        <div class="spotlight-tools"><span>React</span><span>Vite</span><span>FastAPI</span><span>Supabase</span><span>PostgreSQL</span><span>Structural Calc</span><span>MTO</span><span>Progress Monitoring</span></div>
+      </div>
+    </div>
+
     <div class="model-grid">
       <div class="model-item reveal">
         <div class="model-thumb"><img class="zoomable" src="assets/img/3d-visualisasi-fasad-stasiun-transit.jpg" alt="Visualisasi 3D fasad stasiun transit"></div>
@@ -1540,7 +1560,10 @@
       "card3.desc":"Pengawasan pelaksanaan konstruksi, peninjauan gambar kerja, dan koordinasi lapangan.",
       "card4.desc":"Site engineering bersama China Road and Bridge Corporation pada proyek infrastruktur pesisir.",
       "model.eyebrow":"Pemodelan 3D","model.title":"3D Modeling &amp; Visualisasi",
-      "model.sub":"Kumpulan pemodelan dan render 3D — dari visualisasi arsitektur, pemodelan struktur jembatan, hingga konsep infrastruktur. Sebagai bukti kemampuan modeling &amp; rendering. Klik gambar untuk memperbesar.",
+      "model.sub":"Kumpulan pemodelan dan render 3D — dari visualisasi arsitektur, pemodelan struktur jembatan, hingga konsep infrastruktur — serta aplikasi web engineering yang saya kembangkan. Klik gambar untuk memperbesar.",
+      "web.cat":"Aplikasi Web — Engineering Suite",
+      "web.title":"RE-Project — Web Kalkulasi &amp; Monitoring Project",
+      "web.desc":"Aplikasi web engineering yang saya kembangkan sendiri: dashboard multi-disiplin dengan kalkulator teknik (pondasi dangkal, pondasi equipment, pipe support) lengkap dengan laporan otomatis &amp; Material Take-Off (MTO), serta monitoring progress project dan Kurva-S. Dibangun dengan React, FastAPI, dan Supabase.",
       "model.cap1":"Visualisasi arsitektur — fasad stasiun transit",
       "model.cap2":"Kanopi panel surya di atas peron stasiun",
       "model.cap3":"Panorama 360° kawasan stasiun transit",
@@ -1666,7 +1689,10 @@
       "card3.desc":"Construction implementation supervision, working drawing review, and field coordination.",
       "card4.desc":"Site engineering with China Road and Bridge Corporation on a coastal infrastructure project.",
       "model.eyebrow":"3D Modeling","model.title":"3D Modeling &amp; Visualization",
-      "model.sub":"A collection of 3D models and renders — from architectural visualization and bridge structural modeling to infrastructure concepts. Shown as proof of modeling &amp; rendering skills. Click any image to enlarge.",
+      "model.sub":"A collection of 3D models and renders — from architectural visualization and bridge structural modeling to infrastructure concepts — plus an engineering web application I developed. Click any image to enlarge.",
+      "web.cat":"Web App — Engineering Suite",
+      "web.title":"RE-Project — Engineering Calculation &amp; Project Monitoring Web App",
+      "web.desc":"An engineering web application I built end-to-end: a multi-discipline dashboard with technical calculators (shallow foundation, equipment foundation, pipe support) featuring automated reports &amp; Material Take-Off (MTO), plus project progress monitoring with an S-curve. Built with React, FastAPI, and Supabase.",
       "model.cap1":"Architectural visualization — transit station facade",
       "model.cap2":"Solar-panel canopy over the station platform",
       "model.cap3":"360° panorama of the transit station area",
