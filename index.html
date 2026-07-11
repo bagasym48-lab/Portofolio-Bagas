@@ -588,13 +588,66 @@
   }
 
   @media print{
-    header.nav, .hero-cta, .contact-links, .blob, .epc-silhouette, .nav-print{display:none;}
-    section{padding:28px 0;}
-    body{font-size:12px;}
-    .reveal{opacity:1 !important;transform:none !important;}
-    .hero-text > *, .hero-photo{animation:none !important;opacity:1 !important;}
-    .hero-text h1, .edu-gpa b{-webkit-text-fill-color:initial;background:none;color:var(--navy) !important;}
-    .tl-item, .org-item, .model-item, .cert-item, .spotlight, .webapp-feature, .tl-gallery figure, .edu-card{break-inside:avoid;}
+    @page{ margin:13mm 11mm; }
+    *{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    html, body{ background:#fff !important; }
+    header.nav, .nav-print, .hero-cta, .blob, .epc-silhouette, .lightbox{ display:none !important; }
+    body{ font-size:11.5px; line-height:1.5; }
+    .container{ max-width:100% !important; padding:0 5mm !important; }
+    section{ padding:16px 0 !important; border:none !important; background:#fff !important; }
+    .reveal{ opacity:1 !important; transform:none !important; }
+    .hero-text > *, .hero-photo{ animation:none !important; opacity:1 !important; }
+
+    /* jangan potong gambar / kartu di tengah halaman */
+    img{ break-inside:avoid; page-break-inside:avoid; }
+    figure, .tl-item, .org-item, .model-item, .cert-item, .project-card, .spotlight,
+    .webapp-feature, .tl-gallery figure, .site-tile, .edu-card, .stat, .hi-card,
+    .achv-list li{ break-inside:avoid; page-break-inside:avoid; }
+    h1, h2, h3, h4, .eyebrow{ break-after:avoid; page-break-after:avoid; }
+
+    /* header section: center & simetris */
+    .eyebrow{ text-align:center; }
+    h2.section-title{ display:block; text-align:center; padding-bottom:12px; margin-left:auto; margin-right:auto; }
+    h2.section-title::after{ left:50%; transform:translateX(-50%); }
+    .section-sub{ text-align:center; margin-left:auto; margin-right:auto; }
+
+    /* hero jadi sampul terpusat */
+    .hero{ padding:4px 0 14px !important; }
+    .hero-inner{ flex-direction:column !important; text-align:center !important; gap:14px !important; }
+    .hero-photo{ order:1; margin:0 auto !important; width:150px !important; height:150px !important; }
+    .hero-text{ order:2; }
+    .hero-text p.desc{ margin-left:auto !important; margin-right:auto !important; }
+    .hero-badges, .hero-stats{ justify-content:center !important; }
+    .hero-stats{ gap:26px !important; }
+    .hero-text h1, .edu-gpa b{ -webkit-text-fill-color:initial; background:none; color:var(--navy) !important; }
+
+    /* galeri: jumlah kolom konsisten */
+    .model-grid{ grid-template-columns:repeat(2,1fr) !important; gap:12px !important; }
+    .tl-gallery{ grid-template-columns:repeat(3,1fr) !important; gap:8px !important; }
+    .cert-grid{ grid-template-columns:repeat(3,1fr) !important; gap:12px !important; }
+    .project-grid{ grid-template-columns:repeat(2,1fr) !important; gap:16px !important; }
+    .spotlight-thumbs{ grid-template-columns:repeat(3,1fr) !important; gap:8px !important; }
+    .site-grid{ grid-template-columns:repeat(3,1fr) !important; }
+
+    /* batasi tinggi gambar supaya tidak melintasi halaman */
+    .model-thumb{ height:145px !important; }
+    .tl-shot{ height:116px !important; }
+    .cert-thumb{ height:180px !important; }
+    .spotlight-main img{ aspect-ratio:auto !important; width:auto !important; max-width:100% !important;
+      max-height:300px !important; object-fit:contain !important; margin:0 auto !important; }
+    .spotlight-thumbs img{ max-height:210px !important; object-fit:contain !important; }
+    .wf-media img{ max-height:320px !important; object-fit:contain !important; }
+
+    /* section gelap: buat terbaca & pertahankan info kontak */
+    .contact{ background:#fff !important; }
+    .contact h2{ color:var(--navy) !important; }
+    .contact p{ color:var(--muted) !important; }
+    .contact .eyebrow{ color:var(--accent) !important; }
+    .contact-links{ display:flex !important; }
+    .contact-links a{ color:var(--navy) !important; background:#fff !important; border:1px solid var(--line) !important; }
+    footer{ background:#fff !important; color:var(--muted) !important; border-top:1px solid var(--line); }
+
+    a[href]::after{ content:""; }
   }
 </style>
 </head>
