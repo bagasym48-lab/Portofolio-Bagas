@@ -603,7 +603,10 @@
     figure, .tl-item, .org-item, .model-item, .cert-item, .project-card, .spotlight,
     .webapp-feature, .tl-gallery figure, .site-tile, .edu-card, .stat, .hi-card,
     .achv-list li{ break-inside:avoid; page-break-inside:avoid; }
-    h1, h2, h3, h4, .eyebrow{ break-after:avoid; page-break-after:avoid; }
+    h1, h2, h3, h4, .eyebrow, .section-sub{ break-after:avoid; page-break-after:avoid; }
+    /* jaga header section tetap menyatu dengan awal isinya (tidak yatim) */
+    .timeline, .model-grid, .project-grid, .cert-grid, .two-col, .webapp-feature,
+    .edu-card, .highlight-strip, .spotlight:first-of-type{ break-before:avoid; page-break-before:avoid; }
 
     /* header section: center & simetris */
     .eyebrow{ text-align:center; }
